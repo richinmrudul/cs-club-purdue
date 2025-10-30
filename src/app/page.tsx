@@ -6,22 +6,21 @@ import Image from "next/image";
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [fadeIn, setFadeIn] = useState(false);
+  const [typedText, setTypedText] = useState("");
+  const fullText = "PURDUE CS CLUB";
 
   useEffect(() => {
-    setTimeout(() => setFadeIn(true), 100);
-  }, []);
-
-  useEffect(() => {
-    const handleClick = (e: MouseEvent) => {
-      const sidebar = document.getElementById("sidebar");
-      if (menuOpen && sidebar && !sidebar.contains(e.target as Node)) {
-        setMenuOpen(false);
+    let i = 0;
+    const interval = setInterval(() => {
+      if (i < fullText.length) {
+        setTypedText(fullText.slice(0, i + 1));
+        i++;
+      } else {
+        clearInterval(interval);
       }
-    };
-    document.addEventListener("mousedown", handleClick);
-    return () => document.removeEventListener("mousedown", handleClick);
-  }, [menuOpen]);
+    }, 100); // typing speed (lower = faster)
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="relative min-h-screen bg-black text-white overflow-hidden">
@@ -38,13 +37,11 @@ export default function Home() {
       </div>
 
       {/* ─── Hero Content ─── */}
-      <div
-        className={`relative z-10 flex flex-col justify-center items-center text-center h-screen px-6 transition-opacity duration-1000 ${
-          fadeIn ? "opacity-100" : "opacity-0"
-        }`}
-      >
+      <div className="relative z-10 flex flex-col justify-center items-center text-center h-screen px-6">
         <h1 className="text-6xl md:text-7xl font-extrabold tracking-tight uppercase mb-6 drop-shadow-lg">
-          Purdue CS Club
+          <span className="border-r-4 border-[#CFB991] pr-2 animate-pulse">
+            {typedText}
+          </span>
         </h1>
         <p className="max-w-2xl text-lg md:text-xl text-gray-200 drop-shadow">
           Inspiring collaboration, innovation, and growth among Purdue’s Computer Science community.
@@ -84,7 +81,6 @@ export default function Home() {
             id="sidebar"
             className="absolute top-0 right-0 h-full w-72 bg-[#0c0c0c]/80 backdrop-blur-xl border-l border-[#CFB991]/30 shadow-[0_0_30px_rgba(207,185,145,0.15)] p-6 text-white transform transition-transform duration-300 ease-in-out"
           >
-            {/* Header */}
             <div className="flex justify-between items-center border-b border-[#CFB991]/40 pb-4">
               <h2 className="text-lg font-bold tracking-wide text-[#CFB991]">Menu</h2>
               <button
@@ -96,7 +92,6 @@ export default function Home() {
               </button>
             </div>
 
-            {/* Links */}
             <nav className="flex flex-col mt-6 space-y-5 text-lg font-medium">
               <Link href="/" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
                 Home
@@ -121,7 +116,6 @@ export default function Home() {
               </Link>
             </nav>
 
-            {/* Footer */}
             <div className="absolute bottom-8 left-0 w-full text-center text-sm text-gray-300 border-t border-[#CFB991]/30 pt-4">
               © {new Date().getFullYear()} Purdue CS Club
             </div>
