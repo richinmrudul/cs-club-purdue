@@ -31,11 +31,10 @@ export default function Home() {
           src="/purdue-indy.jpg"
           alt="Purdue University Indianapolis"
           fill
-          className="object-cover brightness-75" // made image lighter
+          className="object-cover brightness-80"
           priority
         />
-        {/* slightly lighter overlay */}
-        <div className="absolute inset-0 bg-black/35" />
+        <div className="absolute inset-0 bg-black/30" />
       </div>
 
       {/* ─── Hero Content ─── */}
@@ -83,19 +82,21 @@ export default function Home() {
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-30 transition-opacity duration-300">
           <div
             id="sidebar"
-            className="absolute top-0 right-0 h-full w-72 bg-white/10 backdrop-blur-xl border-l border-gray-600 shadow-2xl p-6 text-white transform transition-transform duration-300 ease-in-out"
+            className="absolute top-0 right-0 h-full w-72 bg-[#0c0c0c]/80 backdrop-blur-xl border-l border-[#CFB991]/30 shadow-[0_0_30px_rgba(207,185,145,0.15)] p-6 text-white transform transition-transform duration-300 ease-in-out"
           >
-            <div className="flex justify-between items-center border-b border-gray-700 pb-4">
-              <h2 className="text-lg font-bold tracking-wide">Menu</h2>
+            {/* Header */}
+            <div className="flex justify-between items-center border-b border-[#CFB991]/40 pb-4">
+              <h2 className="text-lg font-bold tracking-wide text-[#CFB991]">Menu</h2>
               <button
                 onClick={() => setMenuOpen(false)}
                 aria-label="Close menu"
-                className="hover:text-gray-300 transition"
+                className="hover:text-[#CFB991] transition"
               >
                 <X size={26} />
               </button>
             </div>
 
+            {/* Links */}
             <nav className="flex flex-col mt-6 space-y-5 text-lg font-medium">
               <Link href="/" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
                 Home
@@ -120,7 +121,8 @@ export default function Home() {
               </Link>
             </nav>
 
-            <div className="absolute bottom-8 left-0 w-full text-center text-sm text-gray-300 border-t border-gray-700 pt-4">
+            {/* Footer */}
+            <div className="absolute bottom-8 left-0 w-full text-center text-sm text-gray-300 border-t border-[#CFB991]/30 pt-4">
               © {new Date().getFullYear()} Purdue CS Club
             </div>
           </div>
