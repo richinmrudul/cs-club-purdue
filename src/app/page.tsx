@@ -8,11 +8,11 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="relative min-h-screen bg-black text-white">
+    <div className="relative min-h-screen bg-black text-white overflow-hidden">
       {/* ─── Hero Background Image ─── */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/hero.jpg" // add a hero.jpg image under /public
+          src="/hero.jpg" // Add this image under /public (dark Purdue campus photo recommended)
           alt="Purdue campus"
           fill
           className="object-cover brightness-50"
@@ -22,12 +22,29 @@ export default function Home() {
 
       {/* ─── Hero Content ─── */}
       <div className="relative z-10 flex flex-col justify-center items-center text-center h-screen px-6">
-        <h1 className="text-6xl font-extrabold tracking-tight uppercase mb-4">
+        <h1 className="text-6xl md:text-7xl font-extrabold tracking-tight uppercase mb-6">
           Purdue CS Club
         </h1>
-        <p className="max-w-2xl text-lg text-gray-200">
+        <p className="max-w-2xl text-lg md:text-xl text-gray-200">
           Inspiring collaboration, innovation, and growth among Purdue’s Computer Science community.
         </p>
+
+        <div className="mt-8 flex flex-col sm:flex-row gap-4">
+          <Link
+            href="/join"
+            className="bg-white text-black px-6 py-3 rounded-md font-semibold hover:bg-gray-300 transition"
+          >
+            Join the Club
+          </Link>
+          <Link
+            href="https://cshackindy.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border border-white px-6 py-3 rounded-md font-semibold hover:bg-white hover:text-black transition"
+          >
+            Learn More about HackIndy
+          </Link>
+        </div>
       </div>
 
       {/* ─── Hamburger Icon ─── */}
@@ -75,11 +92,13 @@ export default function Home() {
             Events
           </Link>
           <Link
-            href="/projects"
+            href="https://cshackindy.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setMenuOpen(false)}
             className="hover:text-purdueGold"
           >
-            Projects
+            HackIndy
           </Link>
           <Link
             href="/join"
