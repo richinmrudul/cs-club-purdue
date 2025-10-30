@@ -18,7 +18,6 @@ export default function Home() {
     const type = () => {
       if (pause) return;
 
-      // Always show cursor during typing/deleting
       setShowCursor(true);
 
       if (!deleting) {
@@ -26,7 +25,6 @@ export default function Home() {
           setText(fullText.slice(0, i + 1));
           i++;
         } else {
-          // Pause before deleting
           pause = true;
           setTimeout(() => {
             pause = false;
@@ -38,7 +36,6 @@ export default function Home() {
           setText(fullText.slice(0, i - 1));
           i--;
         } else {
-          // Pause before typing again
           pause = true;
           setTimeout(() => {
             pause = false;
@@ -50,7 +47,6 @@ export default function Home() {
 
     const interval = setInterval(type, deleting ? 80 : 130);
 
-    // Cursor blinking only when paused
     const blink = setInterval(() => {
       if (pause) setShowCursor((prev) => !prev);
     }, 500);
@@ -142,6 +138,10 @@ export default function Home() {
               </Link>
               <Link href="/events" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
                 Events
+              </Link>
+              {/* Executive Committee link */}
+              <Link href="/exec" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
+                Executive Committee
               </Link>
               <Link
                 href="https://cshackindy.vercel.app"
