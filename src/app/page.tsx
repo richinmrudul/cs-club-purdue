@@ -21,13 +21,13 @@ export default function Home() {
         // Fade out cursor after short delay
         setTimeout(() => setShowCursor(false), 800);
       }
-    }, 100); // typing speed (lower = faster)
+    }, 100); // typing speed
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="relative min-h-screen bg-black text-white overflow-hidden">
-      {/* ─── Hero Background ─── */}
+      {/* ─── Background ─── */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/purdue-indy.jpg"
@@ -39,17 +39,15 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/30" />
       </div>
 
-      {/* ─── Hero Content ─── */}
+      {/* ─── Hero Section ─── */}
       <div className="relative z-10 flex flex-col justify-center items-center text-center h-screen px-6">
-        <h1 className="text-6xl md:text-7xl font-extrabold tracking-tight uppercase mb-6 drop-shadow-lg">
-          <span
-            className={`pr-2 transition-opacity duration-700 ${
-              showCursor ? "border-r-4 border-[#CFB991] animate-pulse" : "border-none opacity-0"
-            }`}
-          >
-            {typedText}
-          </span>
+        <h1 className="text-6xl md:text-7xl font-extrabold tracking-tight uppercase mb-6 drop-shadow-lg flex justify-center items-center">
+          {typedText}
+          {showCursor && (
+            <span className="border-r-4 border-[#CFB991] animate-pulse ml-1" />
+          )}
         </h1>
+
         <p className="max-w-2xl text-lg md:text-xl text-gray-200 drop-shadow">
           Inspiring collaboration, innovation, and growth among Purdue’s Computer Science community.
         </p>
@@ -72,7 +70,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* ─── Hamburger Icon ─── */}
+      {/* ─── Menu Button ─── */}
       <button
         onClick={() => setMenuOpen(true)}
         aria-label="Open menu"
@@ -81,7 +79,7 @@ export default function Home() {
         <Menu size={28} />
       </button>
 
-      {/* ─── Sidebar Menu ─── */}
+      {/* ─── Sidebar ─── */}
       {menuOpen && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-30 transition-opacity duration-300">
           <div
