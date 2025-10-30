@@ -5,9 +5,9 @@ import Footer from "@/components/Footer";
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="bg-white text-black">
+      <body suppressHydrationWarning={true} className="bg-white text-black">
         <Navbar />
-        <main className="pt-20">{children}</main>
+        <main className="pt-24 min-h-screen">{children}</main>
         <Footer />
       </body>
     </html>
