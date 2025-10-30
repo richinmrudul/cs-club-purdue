@@ -1,8 +1,8 @@
 export default function Footer() {
   return (
-    <footer className="bg-gray-100 text-center py-6 mt-20">
-      <p className="text-gray-600">
-        © {new Date().getFullYear()} Purdue CS Club — All Rights Reserved
+    <footer className="bg-purdueBlack text-center py-6 mt-20 text-white">
+      <p className="text-sm text-purdueGold">
+        © {new Date().getFullYear()} Purdue CS Club
       </p>
     </footer>
   );
