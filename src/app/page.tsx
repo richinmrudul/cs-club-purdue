@@ -16,35 +16,49 @@ export default function Home() {
     let pause = false;
 
     const type = () => {
-      if (pause) return; // Wait during pause period
+      if (pause) return;
 
       if (!deleting) {
+        // Typing phase
         if (i < fullText.length) {
           setText(fullText.slice(0, i + 1));
           i++;
         } else {
+          // Pause before deleting
           pause = true;
           setTimeout(() => {
             pause = false;
             deleting = true;
-          }, 1000); // Pause before deleting
+          }, 1000);
         }
       } else {
+        // Deleting phase
         if (i > 0) {
           setText(fullText.slice(0, i - 1));
           i--;
         } else {
+          // Pause before retyping
           pause = true;
           setTimeout(() => {
             pause = false;
             deleting = false;
-          }, 800); // Pause before retyping
+          }, 800);
         }
       }
     };
 
-    const interval = setInterval(type, deleting ? 80 : 120);
-    return () => clearInterval(interval);
+    // Dynamic speed: faster deleting, slower typing
+    const interval = setInterval(type, deleting ? 80 : 130);
+
+    // Blinking cursor toggle
+    const cursorBlink = setInterval(() => {
+      setShowCursor((prev) => !prev);
+    }, 500);
+
+    return () => {
+      clearInterval(interval);
+      clearInterval(cursorBlink);
+    };
   }, []);
 
   return (
@@ -66,7 +80,7 @@ export default function Home() {
         <h1 className="text-6xl md:text-7xl font-extrabold tracking-tight uppercase mb-6 drop-shadow-lg flex justify-center items-center">
           {text}
           {showCursor && (
-            <span className="border-r-4 border-[#CFB991] animate-pulse ml-1" />
+            <span className="border-r-4 border-[#CFB991] ml-1" />
           )}
         </h1>
 
