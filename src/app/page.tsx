@@ -6,22 +6,44 @@ import Image from "next/image";
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [typedText, setTypedText] = useState("");
+  const [text, setText] = useState("");
   const [showCursor, setShowCursor] = useState(true);
-  const fullText = "PURDUE CS CLUB";
 
   useEffect(() => {
+    const fullText = "PURDUE CS CLUB";
     let i = 0;
-    const interval = setInterval(() => {
-      if (i < fullText.length) {
-        setTypedText(fullText.slice(0, i + 1));
-        i++;
+    let deleting = false;
+    let pause = false;
+
+    const type = () => {
+      if (pause) return; // Wait during pause period
+
+      if (!deleting) {
+        if (i < fullText.length) {
+          setText(fullText.slice(0, i + 1));
+          i++;
+        } else {
+          pause = true;
+          setTimeout(() => {
+            pause = false;
+            deleting = true;
+          }, 1000); // Pause before deleting
+        }
       } else {
-        clearInterval(interval);
-        // Fade out cursor after short delay
-        setTimeout(() => setShowCursor(false), 800);
+        if (i > 0) {
+          setText(fullText.slice(0, i - 1));
+          i--;
+        } else {
+          pause = true;
+          setTimeout(() => {
+            pause = false;
+            deleting = false;
+          }, 800); // Pause before retyping
+        }
       }
-    }, 100); // typing speed
+    };
+
+    const interval = setInterval(type, deleting ? 80 : 120);
     return () => clearInterval(interval);
   }, []);
 
@@ -42,7 +64,7 @@ export default function Home() {
       {/* ─── Hero Section ─── */}
       <div className="relative z-10 flex flex-col justify-center items-center text-center h-screen px-6">
         <h1 className="text-6xl md:text-7xl font-extrabold tracking-tight uppercase mb-6 drop-shadow-lg flex justify-center items-center">
-          {typedText}
+          {text}
           {showCursor && (
             <span className="border-r-4 border-[#CFB991] animate-pulse ml-1" />
           )}
