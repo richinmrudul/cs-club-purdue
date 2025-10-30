@@ -1,14 +1,20 @@
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import type { Metadata } from "next";
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export const metadata: Metadata = {
+  title: "Purdue CS Club",
+  description: "Connecting students through code, collaboration, and community.",
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
-      <body suppressHydrationWarning={true} className="bg-white text-black">
-        <Navbar />
-        <main className="pt-24 min-h-screen">{children}</main>
-        <Footer />
+      <body className="bg-black text-white overflow-x-hidden">
+        {children}
       </body>
     </html>
   );
