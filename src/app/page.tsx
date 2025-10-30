@@ -18,6 +18,9 @@ export default function Home() {
     const type = () => {
       if (pause) return;
 
+      // Always show cursor during typing/deleting
+      setShowCursor(true);
+
       if (!deleting) {
         if (i < fullText.length) {
           setText(fullText.slice(0, i + 1));
@@ -45,12 +48,7 @@ export default function Home() {
       }
     };
 
-    // Adjust speed: slower typing, faster deleting
-    const interval = setInterval(() => {
-      type();
-      // Keep cursor visible while typing/deleting
-      setShowCursor(true);
-    }, deleting ? 80 : 130);
+    const interval = setInterval(type, deleting ? 80 : 130);
 
     // Cursor blinking only when paused
     const blink = setInterval(() => {
@@ -68,8 +66,8 @@ export default function Home() {
       {/* ─── Background ─── */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/purdue-indy.jpg"
-          alt="Purdue University Indianapolis"
+          src="/purdue-indy-2.jpg"
+          alt="Purdue University Indianapolis skyline"
           fill
           className="object-cover brightness-80"
           priority
@@ -82,7 +80,7 @@ export default function Home() {
         <h1 className="text-6xl md:text-7xl font-extrabold tracking-tight uppercase mb-6 drop-shadow-lg flex justify-center items-center">
           {text}
           {showCursor && (
-            <span className="border-r-4 border-[#CFB991] ml-1 animate-pulse" />
+            <span className="border-r-4 border-[#CFB991] ml-1 h-16 inline-block" />
           )}
         </h1>
 
