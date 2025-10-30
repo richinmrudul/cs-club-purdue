@@ -7,6 +7,7 @@ import Image from "next/image";
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [typedText, setTypedText] = useState("");
+  const [showCursor, setShowCursor] = useState(true);
   const fullText = "PURDUE CS CLUB";
 
   useEffect(() => {
@@ -17,6 +18,8 @@ export default function Home() {
         i++;
       } else {
         clearInterval(interval);
+        // Fade out cursor after short delay
+        setTimeout(() => setShowCursor(false), 800);
       }
     }, 100); // typing speed (lower = faster)
     return () => clearInterval(interval);
@@ -39,7 +42,11 @@ export default function Home() {
       {/* ─── Hero Content ─── */}
       <div className="relative z-10 flex flex-col justify-center items-center text-center h-screen px-6">
         <h1 className="text-6xl md:text-7xl font-extrabold tracking-tight uppercase mb-6 drop-shadow-lg">
-          <span className="border-r-4 border-[#CFB991] pr-2 animate-pulse">
+          <span
+            className={`pr-2 transition-opacity duration-700 ${
+              showCursor ? "border-r-4 border-[#CFB991] animate-pulse" : "border-none opacity-0"
+            }`}
+          >
             {typedText}
           </span>
         </h1>
