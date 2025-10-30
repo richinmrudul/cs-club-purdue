@@ -1,31 +1,53 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [fadeIn, setFadeIn] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => setFadeIn(true), 100);
+  }, []);
+
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      const sidebar = document.getElementById("sidebar");
+      if (menuOpen && sidebar && !sidebar.contains(e.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, [menuOpen]);
 
   return (
     <div className="relative min-h-screen bg-black text-white overflow-hidden">
-      {/* ─── Hero Background Image ─── */}
+      {/* ─── Hero Background ─── */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/hero.jpg" // Add this image under /public (dark Purdue campus photo recommended)
-          alt="Purdue campus"
+          src="/purdue-indy.jpg"
+          alt="Purdue University Indianapolis"
           fill
-          className="object-cover brightness-50"
+          className="object-cover brightness-75" // made image lighter
           priority
         />
+        {/* slightly lighter overlay */}
+        <div className="absolute inset-0 bg-black/35" />
       </div>
 
       {/* ─── Hero Content ─── */}
-      <div className="relative z-10 flex flex-col justify-center items-center text-center h-screen px-6">
-        <h1 className="text-6xl md:text-7xl font-extrabold tracking-tight uppercase mb-6">
+      <div
+        className={`relative z-10 flex flex-col justify-center items-center text-center h-screen px-6 transition-opacity duration-1000 ${
+          fadeIn ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        <h1 className="text-6xl md:text-7xl font-extrabold tracking-tight uppercase mb-6 drop-shadow-lg">
           Purdue CS Club
         </h1>
-        <p className="max-w-2xl text-lg md:text-xl text-gray-200">
+        <p className="max-w-2xl text-lg md:text-xl text-gray-200 drop-shadow">
           Inspiring collaboration, innovation, and growth among Purdue’s Computer Science community.
         </p>
 
@@ -57,62 +79,53 @@ export default function Home() {
       </button>
 
       {/* ─── Sidebar Menu ─── */}
-      <div
-        className={`fixed top-0 right-0 h-full w-72 bg-neutral-900/95 text-white shadow-lg z-30 transform transition-transform duration-300 ${
-          menuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-      >
-        <div className="flex justify-between items-center p-6 border-b border-gray-700">
-          <h2 className="text-lg font-bold">Menu</h2>
-          <button onClick={() => setMenuOpen(false)} aria-label="Close menu">
-            <X size={24} />
-          </button>
-        </div>
+      {menuOpen && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-30 transition-opacity duration-300">
+          <div
+            id="sidebar"
+            className="absolute top-0 right-0 h-full w-72 bg-white/10 backdrop-blur-xl border-l border-gray-600 shadow-2xl p-6 text-white transform transition-transform duration-300 ease-in-out"
+          >
+            <div className="flex justify-between items-center border-b border-gray-700 pb-4">
+              <h2 className="text-lg font-bold tracking-wide">Menu</h2>
+              <button
+                onClick={() => setMenuOpen(false)}
+                aria-label="Close menu"
+                className="hover:text-gray-300 transition"
+              >
+                <X size={26} />
+              </button>
+            </div>
 
-        <nav className="flex flex-col p-6 space-y-4 text-lg">
-          <Link
-            href="/"
-            onClick={() => setMenuOpen(false)}
-            className="hover:text-purdueGold"
-          >
-            Home
-          </Link>
-          <Link
-            href="/about"
-            onClick={() => setMenuOpen(false)}
-            className="hover:text-purdueGold"
-          >
-            About
-          </Link>
-          <Link
-            href="/events"
-            onClick={() => setMenuOpen(false)}
-            className="hover:text-purdueGold"
-          >
-            Events
-          </Link>
-          <Link
-            href="https://cshackindy.vercel.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setMenuOpen(false)}
-            className="hover:text-purdueGold"
-          >
-            HackIndy
-          </Link>
-          <Link
-            href="/join"
-            onClick={() => setMenuOpen(false)}
-            className="hover:text-purdueGold"
-          >
-            Join
-          </Link>
-        </nav>
+            <nav className="flex flex-col mt-6 space-y-5 text-lg font-medium">
+              <Link href="/" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
+                Home
+              </Link>
+              <Link href="/about" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
+                About
+              </Link>
+              <Link href="/events" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
+                Events
+              </Link>
+              <Link
+                href="https://cshackindy.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMenuOpen(false)}
+                className="hover:text-[#CFB991] transition"
+              >
+                HackIndy
+              </Link>
+              <Link href="/join" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
+                Join
+              </Link>
+            </nav>
 
-        <div className="absolute bottom-6 w-full text-center text-sm text-gray-400">
-          © {new Date().getFullYear()} Purdue CS Club
+            <div className="absolute bottom-8 left-0 w-full text-center text-sm text-gray-300 border-t border-gray-700 pt-4">
+              © {new Date().getFullYear()} Purdue CS Club
+            </div>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
