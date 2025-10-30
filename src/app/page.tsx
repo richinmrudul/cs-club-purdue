@@ -19,7 +19,6 @@ export default function Home() {
       if (pause) return;
 
       if (!deleting) {
-        // Typing phase
         if (i < fullText.length) {
           setText(fullText.slice(0, i + 1));
           i++;
@@ -32,12 +31,11 @@ export default function Home() {
           }, 1000);
         }
       } else {
-        // Deleting phase
         if (i > 0) {
           setText(fullText.slice(0, i - 1));
           i--;
         } else {
-          // Pause before retyping
+          // Pause before typing again
           pause = true;
           setTimeout(() => {
             pause = false;
@@ -47,17 +45,21 @@ export default function Home() {
       }
     };
 
-    // Dynamic speed: faster deleting, slower typing
-    const interval = setInterval(type, deleting ? 80 : 130);
+    // Adjust speed: slower typing, faster deleting
+    const interval = setInterval(() => {
+      type();
+      // Keep cursor visible while typing/deleting
+      setShowCursor(true);
+    }, deleting ? 80 : 130);
 
-    // Blinking cursor toggle
-    const cursorBlink = setInterval(() => {
-      setShowCursor((prev) => !prev);
+    // Cursor blinking only when paused
+    const blink = setInterval(() => {
+      if (pause) setShowCursor((prev) => !prev);
     }, 500);
 
     return () => {
       clearInterval(interval);
-      clearInterval(cursorBlink);
+      clearInterval(blink);
     };
   }, []);
 
@@ -80,7 +82,7 @@ export default function Home() {
         <h1 className="text-6xl md:text-7xl font-extrabold tracking-tight uppercase mb-6 drop-shadow-lg flex justify-center items-center">
           {text}
           {showCursor && (
-            <span className="border-r-4 border-[#CFB991] ml-1" />
+            <span className="border-r-4 border-[#CFB991] ml-1 animate-pulse" />
           )}
         </h1>
 
