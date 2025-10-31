@@ -1,117 +1,112 @@
 "use client";
 import { useState } from "react";
+import { Menu, X } from "lucide-react";
+import Link from "next/link";
 import Image from "next/image";
-import { X, Linkedin } from "lucide-react";
 
-type Member = {
-  name: string;
-  role: string;
-  image: string;
-  bio: string;
-  linkedin?: string;
-};
-
-const members: Member[] = [
-  { name: "Om Janamanchi", role: "Co-President", image: "/exec-placeholder.jpg", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed viverra, nisl id imperdiet dictum, enim urna aliquet massa, at congue nulla mauris sit amet lacus." },
-  { name: "Abha Gupta", role: "Co-President", image: "/exec-placeholder.jpg", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis feugiat sem ut lacus euismod, sit amet iaculis lorem dapibus." },
-  { name: "Emily Zheng", role: "Treasurer", image: "/exec-placeholder.jpg", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a erat vitae sapien consequat tincidunt sed sit amet justo." },
-  { name: "Ruthu Shankar", role: "Outreach Coordinator", image: "/exec-placeholder.jpg", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac eros eu justo faucibus ultricies." },
-  { name: "Shely Dash", role: "Outreach Coordinator", image: "/exec-placeholder.jpg", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer laoreet lacus vel nibh feugiat, vitae porttitor magna aliquam." },
-  { name: "Ashwati Palanivel", role: "Secretary", image: "/exec-placeholder.jpg", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus blandit lorem non tortor placerat, sit amet ornare leo volutpat." },
-  { name: "Hana Zoaib", role: "Social Media Coordinator", image: "/exec-placeholder.jpg", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed nisl at nunc aliquam facilisis." },
-  { name: "Oluwatomi Oladunni", role: "Social Media Coordinator", image: "/exec-placeholder.jpg", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut velit eget lectus cursus efficitur." },
-  { name: "Richin Mrudul", role: "Webmaster", image: "/exec-placeholder.jpg", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vehicula elit in massa eleifend, sed ultricies mi viverra." },
-  { name: "Aditya Raj Pundir", role: "Executive Member", image: "/exec-placeholder.jpg", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sagittis tortor in eros eleifend, a tincidunt sapien tempus." },
-  { name: "Aryaman Patel", role: "Underclassman Representative", image: "/exec-placeholder.jpg", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In commodo tellus nec odio rhoncus tempor." },
+const execMembers = [
+  { name: "Om Janamanchi", role: "Co-President", img: "/lebron.jpg" },
+  { name: "Abha Gupta", role: "Co-President", img: "/lebron.jpg" },
+  { name: "Emily Zheng", role: "Treasurer", img: "/lebron.jpg" },
+  { name: "Ruthu Shankar", role: "Outreach Coordinator", img: "/lebron.jpg" },
+  { name: "Shely Dash", role: "Outreach Coordinator", img: "/lebron.jpg" },
+  { name: "Ashwati Palanivel", role: "Secretary", img: "/lebron.jpg" },
+  { name: "Hana Zoaib", role: "Social Media Coordinator", img: "/lebron.jpg" },
+  { name: "Oluwatomi Oladunni", role: "Social Media Coordinator", img: "/lebron.jpg" },
+  { name: "Richin Mrudul", role: "Webmaster", img: "/lebron.jpg" },
+  { name: "Aditya Raj Pundir", role: "Executive Member", img: "/lebron.jpg" },
+  { name: "Aryaman Patel", role: "Underclassman Rep", img: "/lebron.jpg" },
 ];
 
 export default function ExecPage() {
-  const [selected, setSelected] = useState<Member | null>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col items-center pt-24 pb-16 px-6">
-      {/* Hero Header */}
-      <div className="text-center mb-12">
-        <p className="text-[#CFB991] uppercase tracking-widest text-sm mb-2">
-          Meet Our
-        </p>
-        <h1 className="text-5xl md:text-6xl font-extrabold uppercase">
-          Executive Committee
-        </h1>
+    <div className="relative min-h-screen bg-black text-white">
+      {/* ─── Header ─── */}
+      <div className="text-center pt-28 pb-10">
+        <p className="text-[#CFB991] uppercase text-sm tracking-widest mb-2">Meet Our</p>
+        <h1 className="text-5xl md:text-6xl font-extrabold uppercase">Executive Committee</h1>
       </div>
 
-      {/* Members Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 max-w-6xl">
-        {members.map((m) => (
+      {/* ─── Exec Grid ─── */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-8 pb-20 justify-items-center">
+        {execMembers.map((member) => (
           <div
-            key={m.name}
-            onClick={() => setSelected(m)}
-            className="cursor-pointer bg-[#111]/80 backdrop-blur-sm rounded-2xl overflow-hidden border border-[#CFB991]/20 hover:border-[#CFB991]/60 transition duration-300 group"
+            key={member.name}
+            className="bg-[#111] rounded-2xl shadow-md overflow-hidden text-center transition-transform hover:scale-[1.03]"
           >
-            <div className="relative w-full h-80">
-              <Image
-                src={m.image}
-                alt={m.name}
-                fill
-                className="object-cover group-hover:scale-105 transition duration-500"
-              />
-            </div>
-            <div className="p-4 text-center">
-              <h2 className="text-xl font-bold text-white">{m.name}</h2>
-              <p className="text-[#CFB991]">{m.role}</p>
+            <Image
+              src={member.img}
+              alt={member.name}
+              width={300}
+              height={350}
+              className="object-cover w-full h-72"
+            />
+            <div className="p-4">
+              <h3 className="text-lg font-bold text-white">{member.name}</h3>
+              <p className="text-gray-400 text-sm">{member.role}</p>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Modal */}
-      {selected && (
-        <div
-          className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center px-4"
-          onClick={() => setSelected(null)}
-        >
+      {/* ─── Menu Button ─── */}
+      <button
+        onClick={() => setMenuOpen(true)}
+        aria-label="Open menu"
+        className="fixed top-6 right-6 z-20 bg-black/60 p-3 rounded-md hover:bg-black/80 transition"
+      >
+        <Menu size={28} />
+      </button>
+
+      {/* ─── Sidebar ─── */}
+      {menuOpen && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-30 transition-opacity duration-300">
           <div
-            onClick={(e) => e.stopPropagation()}
-            className="bg-[#0c0c0c]/90 border border-[#CFB991]/40 rounded-2xl shadow-xl max-w-4xl w-full overflow-hidden flex flex-col md:flex-row"
+            id="sidebar"
+            className="absolute top-0 right-0 h-full w-72 bg-[#0c0c0c]/80 backdrop-blur-xl border-l border-[#CFB991]/30 shadow-[0_0_30px_rgba(207,185,145,0.15)] p-6 text-white transform transition-transform duration-300 ease-in-out"
           >
-            <div className="relative w-full md:w-1/2 h-80 md:h-auto">
-              <Image
-                src={selected.image}
-                alt={selected.name}
-                fill
-                className="object-cover"
-              />
+            <div className="flex justify-between items-center border-b border-[#CFB991]/40 pb-4">
+              <h2 className="text-lg font-bold tracking-wide text-[#CFB991]">Menu</h2>
+              <button
+                onClick={() => setMenuOpen(false)}
+                aria-label="Close menu"
+                className="hover:text-[#CFB991] transition"
+              >
+                <X size={26} />
+              </button>
             </div>
-            <div className="p-6 md:p-8 flex flex-col justify-center w-full md:w-1/2">
-              <div className="flex justify-between items-start">
-                <div>
-                  <p className="text-[#CFB991] text-sm uppercase tracking-wide font-semibold">
-                    {selected.role}
-                  </p>
-                  <h2 className="text-3xl font-bold mt-1">{selected.name}</h2>
-                </div>
-                <button
-                  onClick={() => setSelected(null)}
-                  aria-label="Close"
-                  className="text-gray-400 hover:text-white transition"
-                >
-                  <X size={24} />
-                </button>
-              </div>
-              {selected.linkedin && (
-                <a
-                  href={selected.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 mt-3 text-[#CFB991] hover:text-white transition"
-                >
-                  <Linkedin size={18} />
-                  LinkedIn
-                </a>
-              )}
-              <p className="mt-4 text-gray-300 leading-relaxed text-sm md:text-base">
-                {selected.bio}
-              </p>
+
+            <nav className="flex flex-col mt-6 space-y-5 text-lg font-medium">
+              <Link href="/" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
+                Home
+              </Link>
+              <Link href="/about" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
+                About
+              </Link>
+              <Link href="/events" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
+                Events
+              </Link>
+              <Link href="/exec" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
+                Executive Committee
+              </Link>
+              <Link
+                href="https://cshackindy.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMenuOpen(false)}
+                className="hover:text-[#CFB991] transition"
+              >
+                HackIndy
+              </Link>
+              <Link href="/join" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
+                Join
+              </Link>
+            </nav>
+
+            <div className="absolute bottom-8 left-0 w-full text-center text-sm text-gray-300 border-t border-[#CFB991]/30 pt-4">
+              © {new Date().getFullYear()} Purdue CS Club
             </div>
           </div>
         </div>
