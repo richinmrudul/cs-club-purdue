@@ -5,17 +5,17 @@ import Link from "next/link";
 import Image from "next/image";
 
 const execMembers = [
-  { name: "Om Janamanchi", role: "Co-President", img: "/lebron.jpg" },
-  { name: "Abha Gupta", role: "Co-President", img: "/lebron.jpg" },
-  { name: "Emily Zheng", role: "Treasurer", img: "/lebron.jpg" },
-  { name: "Ruthu Shankar", role: "Outreach Coordinator", img: "/lebron.jpg" },
-  { name: "Shely Dash", role: "Outreach Coordinator", img: "/lebron.jpg" },
-  { name: "Ashwati Palanivel", role: "Secretary", img: "/lebron.jpg" },
-  { name: "Hana Zoaib", role: "Social Media Coordinator", img: "/lebron.jpg" },
-  { name: "Oluwatomi Oladunni", role: "Social Media Coordinator", img: "/lebron.jpg" },
-  { name: "Richin Mrudul", role: "Webmaster", img: "/lebron.jpg" },
-  { name: "Aditya Raj Pundir", role: "Executive Member", img: "/lebron.jpg" },
-  { name: "Aryaman Patel", role: "Underclassman Rep", img: "/lebron.jpg" },
+  { name: "Om Janamanchi", role: "Co-President", img: "/exec-placeholder.jpg" },
+  { name: "Abha Gupta", role: "Co-President", img: "/exec-placeholder.jpg" },
+  { name: "Emily Zheng", role: "Treasurer", img: "/exec-placeholder.jpg" },
+  { name: "Ruthu Shankar", role: "Outreach Coordinator", img: "/exec-placeholder.jpg" },
+  { name: "Shely Dash", role: "Outreach Coordinator", img: "/exec-placeholder.jpg" },
+  { name: "Ashwati Palanivel", role: "Secretary", img: "/exec-placeholder.jpg" },
+  { name: "Hana Zoaib", role: "Social Media Coordinator", img: "/exec-placeholder.jpg" },
+  { name: "Oluwatomi Oladunni", role: "Social Media Coordinator", img: "/exec-placeholder.jpg" },
+  { name: "Richin Mrudul", role: "Webmaster", img: "/exec-placeholder.jpg" },
+  { name: "Aditya Raj Pundir", role: "Executive Member", img: "/exec-placeholder.jpg" },
+  { name: "Aryaman Patel", role: "Underclassman Rep", img: "/exec-placeholder.jpg" },
 ];
 
 export default function ExecPage() {
@@ -25,16 +25,20 @@ export default function ExecPage() {
     <div className="relative min-h-screen bg-black text-white">
       {/* ─── Header ─── */}
       <div className="text-center pt-28 pb-10">
-        <p className="text-[#CFB991] uppercase text-sm tracking-widest mb-2">Meet Our</p>
-        <h1 className="text-5xl md:text-6xl font-extrabold uppercase">Executive Committee</h1>
+        <p className="text-[#CFB991] uppercase text-sm tracking-widest mb-2">
+          Meet Our
+        </p>
+        <h1 className="text-5xl md:text-6xl font-extrabold uppercase">
+          Executive Committee
+        </h1>
       </div>
 
-      {/* ─── Exec Grid ─── */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-8 pb-20 justify-items-center">
+      {/* ─── Exec Grid (flex for perfect centering) ─── */}
+      <div className="flex flex-wrap justify-center gap-x-10 gap-y-12 px-8 pb-20">
         {execMembers.map((member) => (
           <div
             key={member.name}
-            className="bg-[#111] rounded-2xl shadow-md overflow-hidden text-center transition-transform hover:scale-[1.03]"
+            className="bg-[#111] rounded-2xl shadow-md overflow-hidden text-center transition-transform hover:scale-[1.03] w-[260px]"
           >
             <Image
               src={member.img}
@@ -68,7 +72,9 @@ export default function ExecPage() {
             className="absolute top-0 right-0 h-full w-72 bg-[#0c0c0c]/80 backdrop-blur-xl border-l border-[#CFB991]/30 shadow-[0_0_30px_rgba(207,185,145,0.15)] p-6 text-white transform transition-transform duration-300 ease-in-out"
           >
             <div className="flex justify-between items-center border-b border-[#CFB991]/40 pb-4">
-              <h2 className="text-lg font-bold tracking-wide text-[#CFB991]">Menu</h2>
+              <h2 className="text-lg font-bold tracking-wide text-[#CFB991]">
+                Menu
+              </h2>
               <button
                 onClick={() => setMenuOpen(false)}
                 aria-label="Close menu"
@@ -79,16 +85,32 @@ export default function ExecPage() {
             </div>
 
             <nav className="flex flex-col mt-6 space-y-5 text-lg font-medium">
-              <Link href="/" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
+              <Link
+                href="/"
+                onClick={() => setMenuOpen(false)}
+                className="hover:text-[#CFB991] transition"
+              >
                 Home
               </Link>
-              <Link href="/about" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
+              <Link
+                href="/about"
+                onClick={() => setMenuOpen(false)}
+                className="hover:text-[#CFB991] transition"
+              >
                 About
               </Link>
-              <Link href="/events" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
+              <Link
+                href="/events"
+                onClick={() => setMenuOpen(false)}
+                className="hover:text-[#CFB991] transition"
+              >
                 Events
               </Link>
-              <Link href="/exec" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
+              <Link
+                href="/exec"
+                onClick={() => setMenuOpen(false)}
+                className="hover:text-[#CFB991] transition"
+              >
                 Executive Committee
               </Link>
               <Link
@@ -100,7 +122,11 @@ export default function ExecPage() {
               >
                 HackIndy
               </Link>
-              <Link href="/join" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
+              <Link
+                href="/join"
+                onClick={() => setMenuOpen(false)}
+                className="hover:text-[#CFB991] transition"
+              >
                 Join
               </Link>
             </nav>
