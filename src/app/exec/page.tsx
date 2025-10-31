@@ -14,7 +14,8 @@ const execMembers = [
   { name: "Ashwati Palanivel", role: "Secretary", img: "/exec-placeholder.jpg" },
   { name: "Hana Zoaib", role: "Social Media Coordinator", img: "/exec-placeholder.jpg" },
   { name: "Oluwatomi Oladunni", role: "Social Media Coordinator", img: "/exec-placeholder.jpg" },
-  { name: "Richin Mrudul", role: "Webmaster", img: "/exec-placeholder.jpg" },
+  // ✅ Updated image here
+  { name: "Richin Mrudul", role: "Webmaster", img: "/richin-headshot.png" },
   { name: "Aditya Raj Pundir", role: "Executive Member", img: "/exec-placeholder.jpg" },
   { name: "Aryaman Patel", role: "Underclassman Rep", img: "/exec-placeholder.jpg" },
 ];
@@ -34,7 +35,7 @@ export default function ExecPage() {
         </h1>
       </div>
 
-      {/* ─── Exec Cards (with fade-in animation) ─── */}
+      {/* ─── Exec Cards (animated) ─── */}
       <div className="flex flex-wrap justify-center gap-x-10 gap-y-12 px-8 pb-20">
         {execMembers.map((member, i) => (
           <motion.div
@@ -91,32 +92,16 @@ export default function ExecPage() {
             </div>
 
             <nav className="flex flex-col mt-6 space-y-5 text-lg font-medium">
-              <Link
-                href="/"
-                onClick={() => setMenuOpen(false)}
-                className="hover:text-[#CFB991] transition"
-              >
+              <Link href="/" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
                 Home
               </Link>
-              <Link
-                href="/about"
-                onClick={() => setMenuOpen(false)}
-                className="hover:text-[#CFB991] transition"
-              >
+              <Link href="/about" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
                 About
               </Link>
-              <Link
-                href="/events"
-                onClick={() => setMenuOpen(false)}
-                className="hover:text-[#CFB991] transition"
-              >
+              <Link href="/events" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
                 Events
               </Link>
-              <Link
-                href="/exec"
-                onClick={() => setMenuOpen(false)}
-                className="hover:text-[#CFB991] transition"
-              >
+              <Link href="/exec" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
                 Executive Committee
               </Link>
               <Link
@@ -128,11 +113,7 @@ export default function ExecPage() {
               >
                 HackIndy
               </Link>
-              <Link
-                href="/join"
-                onClick={() => setMenuOpen(false)}
-                className="hover:text-[#CFB991] transition"
-              >
+              <Link href="/join" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
                 Join
               </Link>
             </nav>
