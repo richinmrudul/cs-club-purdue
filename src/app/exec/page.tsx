@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const execMembers = [
   { name: "Om Janamanchi", role: "Co-President", img: "/exec-placeholder.jpg" },
@@ -33,12 +34,17 @@ export default function ExecPage() {
         </h1>
       </div>
 
-      {/* ─── Exec Grid (flex for perfect centering) ─── */}
+      {/* ─── Exec Cards (with fade-in animation) ─── */}
       <div className="flex flex-wrap justify-center gap-x-10 gap-y-12 px-8 pb-20">
-        {execMembers.map((member) => (
-          <div
+        {execMembers.map((member, i) => (
+          <motion.div
             key={member.name}
-            className="bg-[#111] rounded-2xl shadow-md overflow-hidden text-center transition-transform hover:scale-[1.03] w-[260px]"
+            className="bg-[#111] rounded-2xl shadow-md overflow-hidden text-center w-[260px]"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: i * 0.05 }}
+            viewport={{ once: true }}
+            whileHover={{ scale: 1.04 }}
           >
             <Image
               src={member.img}
@@ -51,7 +57,7 @@ export default function ExecPage() {
               <h3 className="text-lg font-bold text-white">{member.name}</h3>
               <p className="text-gray-400 text-sm">{member.role}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
 
