@@ -42,7 +42,15 @@ const execMembers: ExecMember[] = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec augue at urna accumsan tincidunt. Sed sit amet sem eget nulla varius bibendum in ac urna.",
   },
-  { name: "Hana Zoaib", role: "Social Media Coordinator", img: "/exec-placeholder.jpg" },
+  {
+    name: "Hana Zoaib",
+    role: "Social Media Coordinator",
+    img: "/hana-headshot.png",
+    linkedin: "https://www.linkedin.com/in/hana-zoaib-7233b4345/",
+    email: "hzoaib@purdue.edu",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus viverra justo ut orci finibus, nec gravida urna aliquam. Cras eget felis vel lacus fermentum vulputate.",
+  },
   { name: "Oluwatomi Oladunni", role: "Social Media Coordinator", img: "/exec-placeholder.jpg" },
   {
     name: "Richin Mrudul",
@@ -72,7 +80,7 @@ export default function ExecPage() {
   const [selectedMember, setSelectedMember] = useState<ExecMember | null>(null);
 
   const isModalEnabled = (m: ExecMember) =>
-    ["Richin Mrudul", "Om Janamanchi", "Ashwati Palanivel", "Aditya Raj Pundir"].includes(m.name);
+    ["Richin Mrudul", "Om Janamanchi", "Ashwati Palanivel", "Aditya Raj Pundir", "Hana Zoaib"].includes(m.name);
 
   return (
     <div className="relative min-h-screen bg-black text-white">
