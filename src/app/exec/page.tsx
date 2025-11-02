@@ -55,7 +55,15 @@ const execMembers: ExecMember[] = [
     description:
       "Hi! My name is Richin Mrudul, and I'm a second-year Computer Science student at Purdue University with a concentration in Machine Intelligence. I love using technology to build projects that solve real-world problems and make people’s lives easier. Outside of coding, I enjoy playing guitar and drums, cooking, eating good food, and hanging out with my friends. I’m also a huge Sacramento Kings fan and hope we go to the playoffs soon.",
   },
-  { name: "Aditya Raj Pundir", role: "Executive Member", img: "/exec-placeholder.jpg" },
+  {
+    name: "Aditya Raj Pundir",
+    role: "Executive Member",
+    img: "/aditya-headshot.png",
+    linkedin: "https://linkedin.com/in/aditya-raj-pundir",
+    email: "apundir@purdue.edu",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra, justo nec commodo varius, orci nulla eleifend augue, sit amet tincidunt metus ante nec lorem.",
+  },
   { name: "Aryaman Patel", role: "Underclassman Rep", img: "/exec-placeholder.jpg" },
 ];
 
@@ -64,7 +72,7 @@ export default function ExecPage() {
   const [selectedMember, setSelectedMember] = useState<ExecMember | null>(null);
 
   const isModalEnabled = (m: ExecMember) =>
-    m.name === "Richin Mrudul" || m.name === "Om Janamanchi" || m.name === "Ashwati Palanivel";
+    ["Richin Mrudul", "Om Janamanchi", "Ashwati Palanivel", "Aditya Raj Pundir"].includes(m.name);
 
   return (
     <div className="relative min-h-screen bg-black text-white">
