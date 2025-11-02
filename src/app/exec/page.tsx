@@ -31,7 +31,15 @@ const execMembers: ExecMember[] = [
   },
   { name: "Abha Gupta", role: "Co-President", img: "/exec-placeholder.jpg" },
   { name: "Emily Zheng", role: "Treasurer", img: "/exec-placeholder.jpg" },
-  { name: "Ruthu Shankar", role: "Outreach Coordinator", img: "/exec-placeholder.jpg" },
+  {
+    name: "Ruthu Shankar",
+    role: "Outreach Coordinator",
+    img: "/ruthu-headshot.png",
+    linkedin: "https://www.linkedin.com/in/shankarruthu",
+    email: "shanka61@purdue.edu",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Vivamus eget erat sit amet arcu efficitur dignissim. Donec convallis vel massa sit amet aliquam.",
+  },
   { name: "Shely Dash", role: "Outreach Coordinator", img: "/exec-placeholder.jpg" },
   {
     name: "Ashwati Palanivel",
@@ -95,6 +103,7 @@ export default function ExecPage() {
       "Aditya Raj Pundir",
       "Hana Zoaib",
       "Oluwatomi Oladunni",
+      "Ruthu Shankar",
     ].includes(m.name);
 
   return (
