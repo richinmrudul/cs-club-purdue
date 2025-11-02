@@ -33,7 +33,15 @@ const execMembers: ExecMember[] = [
   { name: "Emily Zheng", role: "Treasurer", img: "/exec-placeholder.jpg" },
   { name: "Ruthu Shankar", role: "Outreach Coordinator", img: "/exec-placeholder.jpg" },
   { name: "Shely Dash", role: "Outreach Coordinator", img: "/exec-placeholder.jpg" },
-  { name: "Ashwati Palanivel", role: "Secretary", img: "/exec-placeholder.jpg" },
+  {
+    name: "Ashwati Palanivel",
+    role: "Secretary",
+    img: "/ashwati-headshot.png",
+    linkedin: "https://www.linkedin.com/in/ashwatipalanivel/",
+    email: "palaniv1@purdue.edu",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec augue at urna accumsan tincidunt. Sed sit amet sem eget nulla varius bibendum in ac urna.",
+  },
   { name: "Hana Zoaib", role: "Social Media Coordinator", img: "/exec-placeholder.jpg" },
   { name: "Oluwatomi Oladunni", role: "Social Media Coordinator", img: "/exec-placeholder.jpg" },
   {
@@ -56,7 +64,7 @@ export default function ExecPage() {
   const [selectedMember, setSelectedMember] = useState<ExecMember | null>(null);
 
   const isModalEnabled = (m: ExecMember) =>
-    m.name === "Richin Mrudul" || m.name === "Om Janamanchi";
+    m.name === "Richin Mrudul" || m.name === "Om Janamanchi" || m.name === "Ashwati Palanivel";
 
   return (
     <div className="relative min-h-screen bg-black text-white">
@@ -129,7 +137,7 @@ export default function ExecPage() {
                 className={`w-full h-full ${
                   selectedMember.name === "Richin Mrudul"
                     ? "object-contain object-top"
-                    : "object-cover"
+                    : "object-cover object-center"
                 }`}
                 priority
               />
@@ -156,8 +164,11 @@ export default function ExecPage() {
                 )}
               </h2>
 
-              {selectedMember.pronouns && (
+              {/* Pronouns placeholder */}
+              {selectedMember.pronouns ? (
                 <p className="flex items-center text-gray-300 text-sm mb-1">👤 {selectedMember.pronouns}</p>
+              ) : (
+                <div className="h-[20px] mb-1" /> // spacing placeholder
               )}
 
               {selectedMember.hometown && (
