@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import { Menu, X, Mail, MapPin, Linkedin } from "lucide-react";
 import Link from "next/link";
@@ -17,7 +18,17 @@ interface ExecMember {
 }
 
 const execMembers: ExecMember[] = [
-  { name: "Om Janamanchi", role: "Co-President", img: "/exec-placeholder.jpg" },
+  {
+    name: "Om Janamanchi",
+    role: "Co-President",
+    img: "/om-headshot.jpg",
+    pronouns: "He/Him/His",
+    hometown: "South Brunswick, NJ",
+    linkedin: "https://www.linkedin.com/in/omjanamanchi/",
+    email: "ojanaman@purdue.edu",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Sed sit amet nunc ut sem placerat gravida sit amet at leo. Curabitur ac odio at orci cursus malesuada.",
+  },
   { name: "Abha Gupta", role: "Co-President", img: "/exec-placeholder.jpg" },
   { name: "Emily Zheng", role: "Treasurer", img: "/exec-placeholder.jpg" },
   { name: "Ruthu Shankar", role: "Outreach Coordinator", img: "/exec-placeholder.jpg" },
@@ -44,31 +55,35 @@ export default function ExecPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedMember, setSelectedMember] = useState<ExecMember | null>(null);
 
+  const isModalEnabled = (m: ExecMember) =>
+    m.name === "Richin Mrudul" || m.name === "Om Janamanchi";
+
   return (
     <div className="relative min-h-screen bg-black text-white">
-      {/* ─── Header ─── */}
+      {/* Header */}
       <div className="text-center pt-28 pb-10">
         <p className="text-[#CFB991] uppercase text-sm tracking-widest mb-2">Meet Our</p>
         <h1 className="text-5xl md:text-6xl font-extrabold uppercase">Executive Committee</h1>
       </div>
 
-      {/* ─── Exec Cards ─── */}
+      {/* Grid */}
       <div className="flex flex-wrap justify-center gap-x-10 gap-y-12 px-8 pb-20">
         {execMembers.map((member, i) => {
-          const isRichin = member.name === "Richin Mrudul";
+          const clickable = isModalEnabled(member);
           return (
             <motion.div
               key={member.name}
-              onClick={() => isRichin && setSelectedMember(member)}
-              className={`bg-[#111] rounded-2xl shadow-md overflow-hidden text-center w-[260px] transition-transform cursor-pointer ${
-                isRichin
-                  ? "hover:scale-[1.05] hover:shadow-[0_0_25px_rgba(207,185,145,0.3)]"
+              onClick={() => clickable && setSelectedMember(member)}
+              className={`bg-[#111] rounded-2xl shadow-md overflow-hidden text-center w-[260px] cursor-pointer transition-transform ${
+                clickable
+                  ? "hover:scale-[1.05] hover:shadow-[0_0_25px_rgba(207,185,145,0.35)]"
                   : "hover:scale-[1.02]"
               }`}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: i * 0.05 }}
               viewport={{ once: true }}
+              title={clickable ? `Open ${member.name}` : undefined}
             >
               <Image
                 src={member.img}
@@ -76,7 +91,9 @@ export default function ExecPage() {
                 width={300}
                 height={350}
                 className={`w-full h-72 ${
-                  isRichin ? "object-cover object-top bg-black" : "object-cover"
+                  member.name === "Richin Mrudul"
+                    ? "object-cover object-top bg-black"
+                    : "object-cover"
                 }`}
               />
               <div className="p-4">
@@ -88,14 +105,15 @@ export default function ExecPage() {
         })}
       </div>
 
-      {/* ─── Modal (Only for Richin) ─── */}
+      {/* Modal */}
       {selectedMember && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-          <div className="bg-[#0c0c0c] rounded-3xl shadow-lg max-w-5xl w-full flex flex-col md:flex-row overflow-hidden relative">
-            {/* Close Button */}
+          <div className="bg-[#0c0c0c] rounded-3xl shadow-2xl max-w-7xl w-full md:h-[72vh] flex flex-col md:flex-row overflow-hidden relative">
+            {/* Close */}
             <button
               onClick={() => setSelectedMember(null)}
               title="Close"
+              aria-label="Close modal"
               className="absolute top-4 right-4 text-white hover:text-[#CFB991] transition"
             >
               <X size={28} />
@@ -106,9 +124,14 @@ export default function ExecPage() {
               <Image
                 src={selectedMember.img}
                 alt={selectedMember.name}
-                width={500}
-                height={600}
-                className="object-contain w-full h-full"
+                width={1000}
+                height={1200}
+                className={`w-full h-full ${
+                  selectedMember.name === "Richin Mrudul"
+                    ? "object-contain object-top"
+                    : "object-cover"
+                }`}
+                priority
               />
             </div>
 
@@ -117,6 +140,7 @@ export default function ExecPage() {
               <p className="uppercase text-xs text-[#CFB991] font-semibold tracking-wide mb-2">
                 {selectedMember.role}
               </p>
+
               <h2 className="text-3xl font-bold text-white flex items-center gap-2 mb-3">
                 {selectedMember.name}
                 {selectedMember.linkedin && (
@@ -125,7 +149,7 @@ export default function ExecPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     title="LinkedIn"
-                    className="bg-white text-black px-1 py-[2px] rounded-sm hover:bg-[#CFB991] hover:text-black transition"
+                    className="inline-flex items-center justify-center bg-white text-black rounded-sm px-1 py-[2px] hover:bg-[#CFB991] hover:text-black transition"
                   >
                     <Linkedin size={20} />
                   </a>
@@ -137,7 +161,7 @@ export default function ExecPage() {
               )}
 
               {selectedMember.hometown && (
-                <p className="flex items-center text-gray-300 text-sm mb-3">
+                <p className="flex items-center text-gray-300 text-sm mb-2">
                   <MapPin size={16} className="mr-2" /> {selectedMember.hometown}
                 </p>
               )}
@@ -157,7 +181,7 @@ export default function ExecPage() {
         </div>
       )}
 
-      {/* ─── Menu Button ─── */}
+      {/* Menu Button */}
       <button
         onClick={() => setMenuOpen(true)}
         aria-label="Open menu"
@@ -167,12 +191,12 @@ export default function ExecPage() {
         <Menu size={28} />
       </button>
 
-      {/* ─── Sidebar ─── */}
+      {/* Sidebar */}
       {menuOpen && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-opacity duration-300">
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40">
           <div
             id="sidebar"
-            className="absolute top-0 right-0 h-full w-72 bg-[#0c0c0c]/80 backdrop-blur-xl border-l border-[#CFB991]/30 shadow-[0_0_30px_rgba(207,185,145,0.15)] p-6 text-white transform transition-transform duration-300 ease-in-out"
+            className="absolute top-0 right-0 h-full w-72 bg-[#0c0c0c]/80 backdrop-blur-xl border-l border-[#CFB991]/30 shadow-[0_0_30px_rgba(207,185,145,0.15)] p-6 text-white"
           >
             <div className="flex justify-between items-center border-b border-[#CFB991]/40 pb-4">
               <h2 className="text-lg font-bold tracking-wide text-[#CFB991]">Menu</h2>
