@@ -30,7 +30,15 @@ const execMembers: ExecMember[] = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Sed sit amet nunc ut sem placerat gravida sit amet at leo. Curabitur ac odio at orci cursus malesuada.",
   },
   { name: "Abha Gupta", role: "Co-President", img: "/exec-placeholder.jpg" },
-  { name: "Emily Zheng", role: "Treasurer", img: "/exec-placeholder.jpg" },
+  {
+    name: "Emily Zheng",
+    role: "Treasurer",
+    img: "/emily-headshot.png",
+    linkedin: "https://www.linkedin.com/in/emily-zheng-054890338/",
+    email: "zheng849@purdue.edu",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at justo vel mi posuere aliquam. Integer sed purus non velit vestibulum tristique in eget eros.",
+  },
   {
     name: "Ruthu Shankar",
     role: "Outreach Coordinator",
@@ -88,7 +96,15 @@ const execMembers: ExecMember[] = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra, justo nec commodo varius, orci nulla eleifend augue, sit amet tincidunt metus ante nec lorem.",
   },
-  { name: "Aryaman Patel", role: "Underclassman Rep", img: "/exec-placeholder.jpg" },
+  {
+    name: "Aryaman Patel",
+    role: "Underclassman Rep",
+    img: "/aryaman-headshot.png",
+    linkedin: "https://www.linkedin.com/in/aryamanp7/",
+    email: "pate2794@purdue.edu",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fringilla elit at lorem tristique, vel tempor orci viverra. Sed efficitur ex ac nibh tincidunt, sed porta lorem gravida.",
+  },
 ];
 
 export default function ExecPage() {
@@ -104,6 +120,8 @@ export default function ExecPage() {
       "Hana Zoaib",
       "Oluwatomi Oladunni",
       "Ruthu Shankar",
+      "Aryaman Patel",
+      "Emily Zheng",
     ].includes(m.name);
 
   return (
