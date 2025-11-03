@@ -27,7 +27,7 @@ const execMembers: ExecMember[] = [
     linkedin: "https://www.linkedin.com/in/omjanamanchi/",
     email: "ojanaman@purdue.edu",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Sed sit amet nunc ut sem placerat gravida sit amet at leo. Curabitur ac odio at orci cursus malesuada.",
+      "Hey! I'm Om Janamanchi, a junior majoring in Computer Science with concentrations in Software Engineering and Machine Learning. I’m passionate about building products that empower people and simplifying complex problems through technology.",
   },
   {
     name: "Abha Gupta",
@@ -38,7 +38,7 @@ const execMembers: ExecMember[] = [
     linkedin: "https://www.linkedin.com/in/abha-gupta-a26a2625b/",
     email: "gupt1107@purdue.edu",
     description:
-      "Hello! My name is Abha Gupta, and I am a sophomore in Computer Science with a concentration in Machine Learning and pursuing minors in Math and Finance. I am passionate about how Computer Science intersects with the finance and medicinal industries especially in building prosthetic limbs and personalized genetic research. Outside of academics, I enjoy playing soccer, reading historical fiction, trying new coffee shops, baking desserts, and watching horror movies!",
+      "Hello! My name is Abha Gupta, and I am a sophomore in Computer Science with a concentration in Machine Learning and pursuing minors in Math and Finance. I’m passionate about the intersection of computer science, finance, and healthcare — particularly in prosthetic development and personalized genetics research. Outside of academics, I enjoy playing soccer, reading historical fiction, and trying new coffee shops!",
   },
   {
     name: "Emily Zheng",
@@ -47,7 +47,7 @@ const execMembers: ExecMember[] = [
     linkedin: "https://www.linkedin.com/in/emily-zheng-054890338/",
     email: "zheng849@purdue.edu",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at justo vel mi posuere aliquam. Integer sed purus non velit vestibulum tristique in eget eros.",
+      "Hi! I’m Emily, a sophomore in Computer Science concentrating in Software Engineering. I love learning about new technologies, data visualization, and exploring finance through tech. Outside of CS, I enjoy baking, drawing, and watching mystery shows!",
   },
   {
     name: "Ruthu Shankar",
@@ -56,9 +56,13 @@ const execMembers: ExecMember[] = [
     linkedin: "https://www.linkedin.com/in/shankarruthu",
     email: "shanka61@purdue.edu",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Vivamus eget erat sit amet arcu efficitur dignissim. Donec convallis vel massa sit amet aliquam.",
+      "Hey everyone! I’m Ruthu, a sophomore majoring in Computer Science. I’m passionate about AI applications in education and accessibility. Outside of coding, I enjoy dancing, listening to music, and playing tennis!",
   },
-  { name: "Shely Dash", role: "Outreach Coordinator", img: "/exec-placeholder.jpg" },
+  {
+    name: "Shely Dash",
+    role: "Outreach Coordinator",
+    img: "/exec-placeholder.jpg",
+  },
   {
     name: "Ashwati Palanivel",
     role: "Secretary",
@@ -66,7 +70,7 @@ const execMembers: ExecMember[] = [
     linkedin: "https://www.linkedin.com/in/ashwatipalanivel/",
     email: "palaniv1@purdue.edu",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec augue at urna accumsan tincidunt. Sed sit amet sem eget nulla varius bibendum in ac urna.",
+      "Hi! I’m Ashwati, a Computer Science student with a focus on data science and machine learning. I enjoy working on collaborative projects, data-driven research, and exploring tech’s role in social good.",
   },
   {
     name: "Hana Zoaib",
@@ -75,7 +79,7 @@ const execMembers: ExecMember[] = [
     linkedin: "https://www.linkedin.com/in/hana-zoaib-7233b4345/",
     email: "hzoaib@purdue.edu",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus viverra justo ut orci finibus, nec gravida urna aliquam. Cras eget felis vel lacus fermentum vulputate.",
+      "Hey! I’m Hana, a sophomore in Computer Science. I love combining creativity with technology — designing engaging social campaigns, content creation, and spreading awareness about CS Club events.",
   },
   {
     name: "Oluwatomi Oladunni",
@@ -84,7 +88,7 @@ const execMembers: ExecMember[] = [
     linkedin: "https://www.linkedin.com/in/oluwatomi-oladunni-685708214/",
     email: "ooladunn@purdue.edu",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id mauris sed nibh convallis vestibulum. In non ipsum a arcu tristique interdum ac nec odio.",
+      "Hi! I’m Oluwatomi, a junior majoring in Computer Science. I’m interested in full-stack development and UX/UI design, and love bringing creative energy into everything I work on!",
   },
   {
     name: "Richin Mrudul",
@@ -95,7 +99,7 @@ const execMembers: ExecMember[] = [
     linkedin: "https://www.linkedin.com/in/richin-mrudul-227b67261/",
     email: "rmrudul@purdue.edu",
     description:
-      "Hi! My name is Richin Mrudul, and I'm a second-year Computer Science student at Purdue University with a concentration in Machine Intelligence. I love using technology to build projects that solve real-world problems and make people’s lives easier. Outside of coding, I enjoy playing guitar and drums, cooking, eating good food, and hanging out with my friends. I’m also a huge Sacramento Kings fan and hope we go to the playoffs soon.",
+      "Hi! I’m Richin, a sophomore in Computer Science at Purdue concentrating in Machine Intelligence. I love building full-stack applications and data-driven tools that solve real-world problems. Outside of coding, I play guitar and drums, cook new recipes, and cheer for the Sacramento Kings!",
   },
   {
     name: "Aditya Raj Pundir",
@@ -104,7 +108,7 @@ const execMembers: ExecMember[] = [
     linkedin: "https://linkedin.com/in/aditya-raj-pundir",
     email: "apundir@purdue.edu",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra, justo nec commodo varius, orci nulla eleifend augue, sit amet tincidunt metus ante nec lorem.",
+      "Hi! I’m Aditya, a junior in Computer Science focusing on systems programming and backend engineering. I enjoy optimizing performance and contributing to open-source projects!",
   },
   {
     name: "Aryaman Patel",
@@ -113,7 +117,7 @@ const execMembers: ExecMember[] = [
     linkedin: "https://www.linkedin.com/in/aryamanp7/",
     email: "pate2794@purdue.edu",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fringilla elit at lorem tristique, vel tempor orci viverra. Sed efficitur ex ac nibh tincidunt, sed porta lorem gravida.",
+      "Hey! I’m Aryaman, a freshman majoring in Computer Science. I love learning new technologies, contributing to open-source, and connecting with other CS students!",
   },
 ];
 
@@ -139,8 +143,12 @@ export default function ExecPage() {
     <div className="relative min-h-screen bg-black text-white">
       {/* Header */}
       <div className="text-center pt-28 pb-10">
-        <p className="text-[#CFB991] uppercase text-sm tracking-widest mb-2">Meet Our</p>
-        <h1 className="text-5xl md:text-6xl font-extrabold uppercase">Executive Committee</h1>
+        <p className="text-[#CFB991] uppercase text-sm tracking-widest mb-2">
+          Meet Our
+        </p>
+        <h1 className="text-5xl md:text-6xl font-extrabold uppercase">
+          Executive Committee
+        </h1>
       </div>
 
       {/* Grid */}
@@ -151,15 +159,14 @@ export default function ExecPage() {
             <motion.div
               key={member.name}
               onClick={() => clickable && setSelectedMember(member)}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: i * 0.05 }}
               className={`bg-[#111] rounded-2xl shadow-md overflow-hidden text-center w-[260px] cursor-pointer transition-transform ${
                 clickable
                   ? "hover:scale-[1.05] hover:shadow-[0_0_25px_rgba(207,185,145,0.35)]"
                   : "hover:scale-[1.02]"
               }`}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.05 }}
-              viewport={{ once: true }}
               title={clickable ? `Open ${member.name}` : undefined}
             >
               <Image
@@ -233,25 +240,26 @@ export default function ExecPage() {
                 )}
               </h2>
 
-              {/* Pronouns placeholder */}
-              {selectedMember.pronouns ? (
+              {selectedMember.pronouns && (
                 <p className="flex items-center text-gray-300 text-sm mb-1">
                   👤 {selectedMember.pronouns}
                 </p>
-              ) : (
-                <div className="h-[20px] mb-1" /> // spacing placeholder
               )}
 
               {selectedMember.hometown && (
                 <p className="flex items-center text-gray-300 text-sm mb-2">
-                  <MapPin size={16} className="mr-2" /> {selectedMember.hometown}
+                  <MapPin size={16} className="mr-2" />{" "}
+                  {selectedMember.hometown}
                 </p>
               )}
 
               {selectedMember.email && (
                 <p className="flex items-center text-gray-300 text-sm mb-4">
                   <Mail size={16} className="mr-2" />
-                  <a href={`mailto:${selectedMember.email}`} className="hover:text-[#CFB991]">
+                  <a
+                    href={`mailto:${selectedMember.email}`}
+                    className="hover:text-[#CFB991]"
+                  >
                     {selectedMember.email}
                   </a>
                 </p>
@@ -283,7 +291,9 @@ export default function ExecPage() {
             className="absolute top-0 right-0 h-full w-72 bg-[#0c0c0c]/80 backdrop-blur-xl border-l border-[#CFB991]/30 shadow-[0_0_30px_rgba(207,185,145,0.15)] p-6 text-white"
           >
             <div className="flex justify-between items-center border-b border-[#CFB991]/40 pb-4">
-              <h2 className="text-lg font-bold tracking-wide text-[#CFB991]">Menu</h2>
+              <h2 className="text-lg font-bold tracking-wide text-[#CFB991]">
+                Menu
+              </h2>
               <button
                 onClick={() => setMenuOpen(false)}
                 aria-label="Close menu"
@@ -295,28 +305,39 @@ export default function ExecPage() {
             </div>
 
             <nav className="flex flex-col mt-6 space-y-5 text-lg font-medium">
-              <Link href="/" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
-                Home
-              </Link>
-              <Link href="/about" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
-                About
-              </Link>
-              <Link href="/events" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
-                Events
-              </Link>
-              <Link href="/exec" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
-                Executive Committee
-              </Link>
               <Link
-                href="https://cshackindy.vercel.app"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/"
                 onClick={() => setMenuOpen(false)}
                 className="hover:text-[#CFB991] transition"
               >
-                HackIndy
+                Home
               </Link>
-              <Link href="/join" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
+              <Link
+                href="/about"
+                onClick={() => setMenuOpen(false)}
+                className="hover:text-[#CFB991] transition"
+              >
+                About
+              </Link>
+              <Link
+                href="/events"
+                onClick={() => setMenuOpen(false)}
+                className="hover:text-[#CFB991] transition"
+              >
+                Events
+              </Link>
+              <Link
+                href="/exec"
+                onClick={() => setMenuOpen(false)}
+                className="hover:text-[#CFB991] transition"
+              >
+                Executive Committee
+              </Link>
+              <Link
+                href="/join"
+                onClick={() => setMenuOpen(false)}
+                className="hover:text-[#CFB991] transition"
+              >
                 Join
               </Link>
             </nav>

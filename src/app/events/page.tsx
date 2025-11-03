@@ -121,12 +121,12 @@ const allEvents: EventItem[] = [
   {
     title: "Liberty Mutual Workshop",
     date: "2026-04-21 18:00",
-    description: "Interactive technical workshop (not recruiting-focused).",
+    description:
+      "Interactive technical workshop (not recruiting-focused).",
     tag: "Technical",
   },
 ];
 
-// Tag color styling
 function tagClasses(tag?: Tag) {
   switch (tag) {
     case "Social":
@@ -158,6 +158,7 @@ function byDateAsc(a: EventItem, b: EventItem) {
 export default function EventsPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [tagFilter, setTagFilter] = useState<"All" | Tag>("All");
+
   const today = new Date("2025-11-02");
 
   const { past, upcoming } = useMemo(() => {
@@ -170,7 +171,7 @@ export default function EventsPage() {
     past.sort(byDateAsc);
     upcoming.sort(byDateAsc);
     return { past, upcoming };
-  }, [today]);
+  }, []);
 
   const filterFn = (e: EventItem) =>
     tagFilter === "All" ? true : e.tag === tagFilter;
@@ -192,12 +193,14 @@ export default function EventsPage() {
             <motion.button
               key={t}
               onClick={() => setTagFilter(t)}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
               className={`rounded-full px-3 py-1 text-xs font-semibold transition ring-1 ring-white/10 ${
                 tagFilter === t
                   ? "bg-[#CFB991] text-black scale-105 shadow-[0_0_10px_rgba(207,185,145,0.4)]"
                   : "bg-[#111] text-gray-200 hover:bg-[#1a1a1a]"
               }`}
-              whileTap={{ scale: 0.96 }}
               aria-pressed={tagFilter === t}
             >
               {t}
@@ -218,10 +221,9 @@ export default function EventsPage() {
             {upcoming.filter(filterFn).map((event, i) => (
               <motion.div
                 key={`${event.title}-${event.date}`}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.05 }}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: i * 0.05 }}
                 className="bg-[#111] rounded-2xl p-6 shadow-md hover:shadow-[0_0_20px_rgba(207,185,145,0.25)] transition"
               >
                 <div className="flex items-center justify-between gap-3 mb-3">
@@ -281,10 +283,9 @@ export default function EventsPage() {
             {past.filter(filterFn).map((event, i) => (
               <motion.div
                 key={`${event.title}-${event.date}`}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.05 }}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: i * 0.05 }}
                 className="bg-[#0f0f0f] rounded-2xl p-6 border border-white/5"
               >
                 <div className="flex items-center justify-between gap-3 mb-3">
@@ -322,7 +323,7 @@ export default function EventsPage() {
         )}
       </section>
 
-      {/* Menu Button */}
+      {/* Menu */}
       <button
         onClick={() => setMenuOpen(true)}
         aria-label="Open menu"
@@ -332,7 +333,6 @@ export default function EventsPage() {
         <Menu size={28} />
       </button>
 
-      {/* Sidebar */}
       {menuOpen && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40">
           <div
@@ -354,28 +354,39 @@ export default function EventsPage() {
             </div>
 
             <nav className="flex flex-col mt-6 space-y-5 text-lg font-medium">
-              <Link href="/" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
-                Home
-              </Link>
-              <Link href="/about" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
-                About
-              </Link>
-              <Link href="/events" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
-                Events
-              </Link>
-              <Link href="/exec" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
-                Executive Committee
-              </Link>
               <Link
-                href="https://cshackindy.vercel.app"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/"
                 onClick={() => setMenuOpen(false)}
                 className="hover:text-[#CFB991] transition"
               >
-                HackIndy
+                Home
               </Link>
-              <Link href="/join" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
+              <Link
+                href="/about"
+                onClick={() => setMenuOpen(false)}
+                className="hover:text-[#CFB991] transition"
+              >
+                About
+              </Link>
+              <Link
+                href="/events"
+                onClick={() => setMenuOpen(false)}
+                className="hover:text-[#CFB991] transition"
+              >
+                Events
+              </Link>
+              <Link
+                href="/exec"
+                onClick={() => setMenuOpen(false)}
+                className="hover:text-[#CFB991] transition"
+              >
+                Executive Committee
+              </Link>
+              <Link
+                href="/join"
+                onClick={() => setMenuOpen(false)}
+                className="hover:text-[#CFB991] transition"
+              >
                 Join
               </Link>
             </nav>
