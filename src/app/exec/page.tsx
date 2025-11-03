@@ -29,7 +29,17 @@ const execMembers: ExecMember[] = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Sed sit amet nunc ut sem placerat gravida sit amet at leo. Curabitur ac odio at orci cursus malesuada.",
   },
-  { name: "Abha Gupta", role: "Co-President", img: "/exec-placeholder.jpg" },
+  {
+    name: "Abha Gupta",
+    role: "Co-President",
+    img: "/abha-headshot.jpg",
+    pronouns: "She/Her/Hers",
+    hometown: "Eden Prairie, MN + Buford, GA",
+    linkedin: "https://www.linkedin.com/in/abha-gupta-a26a2625b/",
+    email: "gupt1107@purdue.edu",
+    description:
+      "Hello! My name is Abha Gupta, and I am a sophomore in Computer Science with a concentration in Machine Learning and pursuing minors in Math and Finance. I am passionate about how Computer Science intersects with the finance and medicinal industries especially in building prosthetic limbs and personalized genetic research. Outside of academics, I enjoy playing soccer, reading historical fiction, trying new coffee shops, baking desserts, and watching horror movies!",
+  },
   {
     name: "Emily Zheng",
     role: "Treasurer",
@@ -115,6 +125,7 @@ export default function ExecPage() {
     [
       "Richin Mrudul",
       "Om Janamanchi",
+      "Abha Gupta",
       "Ashwati Palanivel",
       "Aditya Raj Pundir",
       "Hana Zoaib",
@@ -224,7 +235,9 @@ export default function ExecPage() {
 
               {/* Pronouns placeholder */}
               {selectedMember.pronouns ? (
-                <p className="flex items-center text-gray-300 text-sm mb-1">👤 {selectedMember.pronouns}</p>
+                <p className="flex items-center text-gray-300 text-sm mb-1">
+                  👤 {selectedMember.pronouns}
+                </p>
               ) : (
                 <div className="h-[20px] mb-1" /> // spacing placeholder
               )}
@@ -244,7 +257,9 @@ export default function ExecPage() {
                 </p>
               )}
 
-              <p className="text-gray-200 leading-relaxed">{selectedMember.description}</p>
+              <p className="text-gray-200 leading-relaxed">
+                {selectedMember.description}
+              </p>
             </div>
           </div>
         </div>
