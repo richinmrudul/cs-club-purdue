@@ -27,7 +27,7 @@ const execMembers: ExecMember[] = [
     linkedin: "https://www.linkedin.com/in/omjanamanchi/",
     email: "ojanaman@purdue.edu",
     description:
-      "Hey! I'm Om Janamanchi, a junior majoring in Computer Science with concentrations in Software Engineering and Machine Learning. I’m passionate about building products that empower people and simplifying complex problems through technology.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   },
   {
     name: "Abha Gupta",
@@ -47,7 +47,7 @@ const execMembers: ExecMember[] = [
     linkedin: "https://www.linkedin.com/in/emily-zheng-054890338/",
     email: "zheng849@purdue.edu",
     description:
-      "Hi! I’m Emily, a sophomore in Computer Science concentrating in Software Engineering. I love learning about new technologies, data visualization, and exploring finance through tech. Outside of CS, I enjoy baking, drawing, and watching mystery shows!",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   },
   {
     name: "Ruthu Shankar",
@@ -56,7 +56,7 @@ const execMembers: ExecMember[] = [
     linkedin: "https://www.linkedin.com/in/shankarruthu",
     email: "shanka61@purdue.edu",
     description:
-      "Hey everyone! I’m Ruthu, a sophomore majoring in Computer Science. I’m passionate about AI applications in education and accessibility. Outside of coding, I enjoy dancing, listening to music, and playing tennis!",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   },
   {
     name: "Shely Dash",
@@ -70,7 +70,7 @@ const execMembers: ExecMember[] = [
     linkedin: "https://www.linkedin.com/in/ashwatipalanivel/",
     email: "palaniv1@purdue.edu",
     description:
-      "Hi! I’m Ashwati, a Computer Science student with a focus on data science and machine learning. I enjoy working on collaborative projects, data-driven research, and exploring tech’s role in social good.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   },
   {
     name: "Hana Zoaib",
@@ -79,7 +79,7 @@ const execMembers: ExecMember[] = [
     linkedin: "https://www.linkedin.com/in/hana-zoaib-7233b4345/",
     email: "hzoaib@purdue.edu",
     description:
-      "Hey! I’m Hana, a sophomore in Computer Science. I love combining creativity with technology — designing engaging social campaigns, content creation, and spreading awareness about CS Club events.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   },
   {
     name: "Oluwatomi Oladunni",
@@ -88,7 +88,7 @@ const execMembers: ExecMember[] = [
     linkedin: "https://www.linkedin.com/in/oluwatomi-oladunni-685708214/",
     email: "ooladunn@purdue.edu",
     description:
-      "Hi! I’m Oluwatomi, a junior majoring in Computer Science. I’m interested in full-stack development and UX/UI design, and love bringing creative energy into everything I work on!",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   },
   {
     name: "Richin Mrudul",
@@ -108,7 +108,7 @@ const execMembers: ExecMember[] = [
     linkedin: "https://linkedin.com/in/aditya-raj-pundir",
     email: "apundir@purdue.edu",
     description:
-      "Hi! I’m Aditya, a junior in Computer Science focusing on systems programming and backend engineering. I enjoy optimizing performance and contributing to open-source projects!",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   },
   {
     name: "Aryaman Patel",
@@ -117,7 +117,7 @@ const execMembers: ExecMember[] = [
     linkedin: "https://www.linkedin.com/in/aryamanp7/",
     email: "pate2794@purdue.edu",
     description:
-      "Hey! I’m Aryaman, a freshman majoring in Computer Science. I love learning new technologies, contributing to open-source, and connecting with other CS students!",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   },
 ];
 
