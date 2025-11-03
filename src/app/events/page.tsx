@@ -100,13 +100,13 @@ const allEvents: EventItem[] = [
     tag: "Social",
   },
   {
-    title: "Aerospace Workshop (Bryce, The Data Mine)",
+    title: "Aerospace Workshop",
     date: "2026-02-03 18:00",
     description: "Aerospace themed technical session.",
     tag: "Technical",
   },
   {
-    title: "Valentine’s Dating Show (Multi-Club Collab)",
+    title: "Valentine’s Dating Show",
     date: "2026-02-13 18:00",
     description:
       "Fun collab with CSWN, Music Club, JSAI, KSAPI, PUTSAI — games & show.",
@@ -198,7 +198,7 @@ export default function EventsPage() {
                   : "bg-[#111] text-gray-200 hover:bg-[#1a1a1a]"
               }`}
               whileTap={{ scale: 0.96 }}
-              aria-pressed={tagFilter === t} // ✅ boolean, standards-compliant
+              aria-pressed={tagFilter === t}
             >
               {t}
             </motion.button>
@@ -272,7 +272,7 @@ export default function EventsPage() {
       {/* Past Events */}
       <section className="px-6 md:px-10 lg:px-16 pb-24">
         <h2 className="text-2xl md:text-3xl font-bold text-[#CFB991] mb-6">
-          Past Events (This School Year)
+          Past Events
         </h2>
         {past.filter(filterFn).length === 0 ? (
           <p className="text-gray-400">No past events match this filter.</p>
