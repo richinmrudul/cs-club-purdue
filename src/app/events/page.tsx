@@ -183,7 +183,7 @@ export default function EventsPage() {
           Purdue CS Club
         </p>
         <h1 className="text-4xl md:text-5xl font-extrabold uppercase">
-          2025–2026 School Year Events
+          2025–2026 Events
         </h1>
 
         {/* Tag Filter Pills */}
