@@ -15,8 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-black text-white overflow-x-hidden">
-        <LoadingBar />
-        {children}
+        <LoadingBar>{children}</LoadingBar>
       </body>
     </html>
   );

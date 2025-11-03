@@ -1,8 +1,8 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import { useEffect, useState, Suspense } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useEffect, useState, Suspense, ReactNode } from 'react';
+import { motion } from 'framer-motion';
 
 const COLUMNS = 20;
 const ROWS = 10;
@@ -47,7 +47,34 @@ function BinaryColumn({ columnIndex }: { columnIndex: number }) {
   );
 }
 
-function LoadingBarInner() {
+function LoadingBarContent({ loading }: { loading: boolean }) {
+  useEffect(() => {
+    // Prevent body scrolling when loading
+    if (loading) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }, [loading]);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: loading ? 1 : 0 }}
+      transition={{ duration: 0.2 }}
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black backdrop-blur-sm pointer-events-none"
+      style={{ display: loading ? 'flex' : 'none' }}
+    >
+      <div className="flex gap-2">
+        {Array.from({ length: COLUMNS }).map((_, i) => (
+          <BinaryColumn key={i} columnIndex={i} />
+        ))}
+      </div>
+    </motion.div>
+  );
+}
+
+function LoadingBarWithProvider({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   const [loading, setLoading] = useState(false);
 
@@ -62,40 +89,16 @@ function LoadingBarInner() {
     return () => clearTimeout(timer);
   }, [pathname]);
 
-  useEffect(() => {
-    // Prevent body scrolling when loading
-    if (loading) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-  }, [loading]);
-
   return (
-    <AnimatePresence>
-      {loading && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black backdrop-blur-sm"
-        >
-          <div className="flex gap-2">
-            {Array.from({ length: COLUMNS }).map((_, i) => (
-              <BinaryColumn key={i} columnIndex={i} />
-            ))}
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+    <>
+      <Suspense fallback={null}>
+        <LoadingBarContent loading={loading} />
+      </Suspense>
+      <div style={{ visibility: loading ? 'hidden' : 'visible' }}>
+        {children}
+      </div>
+    </>
   );
 }
 
-export default function LoadingBar() {
-  return (
-    <Suspense fallback={null}>
-      <LoadingBarInner />
-    </Suspense>
-  );
-}
-
+export default LoadingBarWithProvider;
