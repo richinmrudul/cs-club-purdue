@@ -1,29 +1,391 @@
-import Card from "@/components/Card";
+"use client";
 
-export default function Events() {
-  const events = [
-    {
-      title: "Sample Event 1",
-      description: "Description of this event goes here.",
-    },
-    {
-      title: "Sample Event 2",
-      description: "Another placeholder event description.",
-    },
-    {
-      title: "Sample Event 3",
-      description: "Add more events as needed in this list.",
-    },
-  ];
+import { useMemo, useState } from "react";
+import { Menu, X } from "lucide-react";
+import Link from "next/link";
+import { motion } from "framer-motion";
+
+type Tag =
+  | "Social"
+  | "Technical"
+  | "Workshop"
+  | "Professional"
+  | "Club"
+  | "Outreach";
+
+interface EventItem {
+  title: string;
+  date: string;
+  location?: string;
+  description?: string;
+  tag?: Tag;
+  link?: string;
+}
+
+const allEvents: EventItem[] = [
+  // ---- Fall 2025 ----
+  {
+    title: "B-Involved Fair",
+    date: "2025-08-27 15:00",
+    location: "Boiler Park",
+    description: "Meet us at the campus-wide org fair.",
+    tag: "Outreach",
+  },
+  {
+    title: "CS Club Callout",
+    date: "2025-09-02 18:00",
+    location: "CE 406",
+    description: "Kickoff meeting for the year.",
+    tag: "Club",
+  },
+  {
+    title: "CS Club Callout (Second Date)",
+    date: "2025-09-09 15:00",
+    location: "SL 165",
+    description: "Alternate time to meet the club and learn more.",
+    tag: "Club",
+  },
+  {
+    title: "Board Game Night",
+    date: "2025-09-18 18:00",
+    location: "CE 405",
+    description: "Chill evening of games and hanging out.",
+    tag: "Social",
+  },
+  {
+    title: "Resume + Mock Interview Workshop",
+    date: "2025-09-30 18:00",
+    location: "CE 409",
+    description: "Practice interviews and get resume feedback.",
+    tag: "Workshop",
+  },
+  {
+    title: "Career Roadmap Planning",
+    date: "2025-10-07 18:00",
+    location: "SL 112",
+    description: "Plan your path through CS and beyond.",
+    tag: "Professional",
+  },
+  {
+    title: "Halloween Lab Crawl",
+    date: "2025-10-30 17:00",
+    location: "SL 239",
+    description: "Spooky lab crawl + demos.",
+    tag: "Social",
+  },
+  {
+    title: "Game Dev + AI Agent Workshop",
+    date: "2025-11-06 18:00",
+    description: "Hands-on intro to simple agents in games.",
+    tag: "Technical",
+  },
+  {
+    title: "Pie an Officer",
+    date: "2025-11-20 18:00",
+    description: "Fundraiser & fun social event.",
+    tag: "Social",
+  },
+  {
+    title: "Breakfast at Midnight",
+    date: "2025-12-09 00:00",
+    description: "Finals-week tradition — late-night breakfast.",
+    tag: "Social",
+  },
+
+  // ---- Spring 2026 ----
+  {
+    title: "Gingerbread House Building Competition (w/ PSUB)",
+    date: "2026-01-20 18:00",
+    description: "Build the best gingerbread house — prizes & vibes.",
+    tag: "Social",
+  },
+  {
+    title: "Aerospace Workshop (Bryce, The Data Mine)",
+    date: "2026-02-03 18:00",
+    description: "Aerospace themed technical session.",
+    tag: "Technical",
+  },
+  {
+    title: "Valentine’s Dating Show (Multi-Club Collab)",
+    date: "2026-02-13 18:00",
+    description:
+      "Fun collab with CSWN, Music Club, JSAI, KSAPI, PUTSAI — games & show.",
+    tag: "Social",
+  },
+  {
+    title: "Pot Painting",
+    date: "2026-04-07 18:00",
+    description: "Arts & crafts night — paint a pot, take it home.",
+    tag: "Social",
+  },
+  {
+    title: "Liberty Mutual Workshop",
+    date: "2026-04-21 18:00",
+    description: "Interactive technical workshop (not recruiting-focused).",
+    tag: "Technical",
+  },
+];
+
+// Tag color styling
+function tagClasses(tag?: Tag) {
+  switch (tag) {
+    case "Social":
+      return "text-purple-300 ring-1 ring-purple-400/40 bg-purple-950/30";
+    case "Technical":
+      return "text-blue-300 ring-1 ring-blue-400/40 bg-blue-950/30";
+    case "Workshop":
+    case "Professional":
+      return "text-[#CFB991] ring-1 ring-[#CFB991]/40 bg-[#1b1a16]/70";
+    default:
+      return "text-[#CFB991] ring-1 ring-[#CFB991]/40 bg-[#1b1a16]/70";
+  }
+}
+
+const TAGS: ("All" | Tag)[] = [
+  "All",
+  "Social",
+  "Technical",
+  "Workshop",
+  "Professional",
+  "Club",
+  "Outreach",
+];
+
+function byDateAsc(a: EventItem, b: EventItem) {
+  return new Date(a.date).getTime() - new Date(b.date).getTime();
+}
+
+export default function EventsPage() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [tagFilter, setTagFilter] = useState<"All" | Tag>("All");
+  const today = new Date("2025-11-02");
+
+  const { past, upcoming } = useMemo(() => {
+    const past: EventItem[] = [];
+    const upcoming: EventItem[] = [];
+    for (const e of allEvents) {
+      const d = new Date(e.date);
+      (d.getTime() < today.getTime() ? past : upcoming).push(e);
+    }
+    past.sort(byDateAsc);
+    upcoming.sort(byDateAsc);
+    return { past, upcoming };
+  }, [today]);
+
+  const filterFn = (e: EventItem) =>
+    tagFilter === "All" ? true : e.tag === tagFilter;
 
   return (
-    <div className="max-w-5xl mx-auto py-16">
-      <h1 className="text-4xl font-bold mb-8 text-center">Upcoming Events</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {events.map((e) => (
-          <Card key={e.title} title={e.title} description={e.description} />
-        ))}
+    <div className="relative min-h-screen bg-black text-white">
+      {/* Header */}
+      <div className="text-center pt-28 px-6">
+        <p className="text-[#CFB991] uppercase text-xs tracking-[0.25em] mb-2">
+          Purdue CS Club
+        </p>
+        <h1 className="text-4xl md:text-5xl font-extrabold uppercase">
+          2025–2026 School Year Events
+        </h1>
+
+        {/* Tag Filter Pills */}
+        <div className="mt-6 flex flex-wrap gap-2 justify-center">
+          {TAGS.map((t) => (
+            <motion.button
+              key={t}
+              onClick={() => setTagFilter(t)}
+              className={`rounded-full px-3 py-1 text-xs font-semibold transition ring-1 ring-white/10 ${
+                tagFilter === t
+                  ? "bg-[#CFB991] text-black scale-105 shadow-[0_0_10px_rgba(207,185,145,0.4)]"
+                  : "bg-[#111] text-gray-200 hover:bg-[#1a1a1a]"
+              }`}
+              whileTap={{ scale: 0.96 }}
+              aria-pressed={tagFilter === t} // ✅ boolean, standards-compliant
+            >
+              {t}
+            </motion.button>
+          ))}
+        </div>
       </div>
+
+      {/* Upcoming Events */}
+      <section className="px-6 md:px-10 lg:px-16 py-12">
+        <h2 className="text-2xl md:text-3xl font-bold text-[#CFB991] mb-6">
+          Upcoming Events
+        </h2>
+        {upcoming.filter(filterFn).length === 0 ? (
+          <p className="text-gray-400">No upcoming events match this filter.</p>
+        ) : (
+          <div className="grid gap-6 md:grid-cols-2">
+            {upcoming.filter(filterFn).map((event, i) => (
+              <motion.div
+                key={`${event.title}-${event.date}`}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.05 }}
+                className="bg-[#111] rounded-2xl p-6 shadow-md hover:shadow-[0_0_20px_rgba(207,185,145,0.25)] transition"
+              >
+                <div className="flex items-center justify-between gap-3 mb-3">
+                  <h3 className="text-xl font-semibold text-white">
+                    {event.title}
+                  </h3>
+                  {event.tag && (
+                    <span
+                      className={`rounded-full px-3 py-1 text-xs font-semibold ${tagClasses(
+                        event.tag
+                      )}`}
+                    >
+                      {event.tag}
+                    </span>
+                  )}
+                </div>
+                <p className="text-sm text-gray-400 mb-1">
+                  {new Date(event.date).toLocaleDateString(undefined, {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  })}
+                </p>
+                {event.location && (
+                  <p className="text-sm text-gray-400 mb-2">
+                    📍 {event.location}
+                  </p>
+                )}
+                {event.description && (
+                  <p className="text-gray-300 mb-3">{event.description}</p>
+                )}
+                {event.link && (
+                  <a
+                    href={event.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#CFB991] text-sm font-medium hover:underline"
+                  >
+                    Learn more →
+                  </a>
+                )}
+              </motion.div>
+            ))}
+          </div>
+        )}
+      </section>
+
+      {/* Past Events */}
+      <section className="px-6 md:px-10 lg:px-16 pb-24">
+        <h2 className="text-2xl md:text-3xl font-bold text-[#CFB991] mb-6">
+          Past Events (This School Year)
+        </h2>
+        {past.filter(filterFn).length === 0 ? (
+          <p className="text-gray-400">No past events match this filter.</p>
+        ) : (
+          <div className="grid gap-6 md:grid-cols-2">
+            {past.filter(filterFn).map((event, i) => (
+              <motion.div
+                key={`${event.title}-${event.date}`}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.05 }}
+                className="bg-[#0f0f0f] rounded-2xl p-6 border border-white/5"
+              >
+                <div className="flex items-center justify-between gap-3 mb-3">
+                  <h3 className="text-xl font-semibold text-white">
+                    {event.title}
+                  </h3>
+                  {event.tag && (
+                    <span
+                      className={`rounded-full px-3 py-1 text-xs font-semibold ${tagClasses(
+                        event.tag
+                      )}`}
+                    >
+                      {event.tag}
+                    </span>
+                  )}
+                </div>
+                <p className="text-sm text-gray-400 mb-1">
+                  {new Date(event.date).toLocaleDateString(undefined, {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  })}
+                </p>
+                {event.location && (
+                  <p className="text-sm text-gray-400 mb-2">
+                    📍 {event.location}
+                  </p>
+                )}
+                {event.description && (
+                  <p className="text-gray-300">{event.description}</p>
+                )}
+              </motion.div>
+            ))}
+          </div>
+        )}
+      </section>
+
+      {/* Menu Button */}
+      <button
+        onClick={() => setMenuOpen(true)}
+        aria-label="Open menu"
+        title="Open Menu"
+        className="fixed top-6 right-6 z-20 bg-black/60 p-3 rounded-md hover:bg-black/80 transition"
+      >
+        <Menu size={28} />
+      </button>
+
+      {/* Sidebar */}
+      {menuOpen && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40">
+          <div
+            id="sidebar"
+            className="absolute top-0 right-0 h-full w-72 bg-[#0c0c0c]/80 backdrop-blur-xl border-l border-[#CFB991]/30 shadow-[0_0_30px_rgba(207,185,145,0.15)] p-6 text-white"
+          >
+            <div className="flex justify-between items-center border-b border-[#CFB991]/40 pb-4">
+              <h2 className="text-lg font-bold tracking-wide text-[#CFB991]">
+                Menu
+              </h2>
+              <button
+                onClick={() => setMenuOpen(false)}
+                aria-label="Close menu"
+                title="Close Menu"
+                className="hover:text-[#CFB991] transition"
+              >
+                <X size={26} />
+              </button>
+            </div>
+
+            <nav className="flex flex-col mt-6 space-y-5 text-lg font-medium">
+              <Link href="/" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
+                Home
+              </Link>
+              <Link href="/about" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
+                About
+              </Link>
+              <Link href="/events" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
+                Events
+              </Link>
+              <Link href="/exec" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
+                Executive Committee
+              </Link>
+              <Link
+                href="https://cshackindy.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMenuOpen(false)}
+                className="hover:text-[#CFB991] transition"
+              >
+                HackIndy
+              </Link>
+              <Link href="/join" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
+                Join
+              </Link>
+            </nav>
+
+            <div className="absolute bottom-8 left-0 w-full text-center text-sm text-gray-300 border-t border-[#CFB991]/30 pt-4">
+              © {new Date().getFullYear()} Purdue CS Club
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
