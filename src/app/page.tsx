@@ -12,43 +12,20 @@ export default function Home() {
   useEffect(() => {
     const fullText = "PURDUE CS CLUB";
     let i = 0;
-    let deleting = false;
-    let pause = false;
 
     const type = () => {
-      if (pause) return;
-
-      setShowCursor(true);
-
-      if (!deleting) {
-        if (i < fullText.length) {
-          setText(fullText.slice(0, i + 1));
-          i++;
-        } else {
-          pause = true;
-          setTimeout(() => {
-            pause = false;
-            deleting = true;
-          }, 1000);
-        }
+      if (i < fullText.length) {
+        setText(fullText.slice(0, i + 1));
+        i++;
       } else {
-        if (i > 0) {
-          setText(fullText.slice(0, i - 1));
-          i--;
-        } else {
-          pause = true;
-          setTimeout(() => {
-            pause = false;
-            deleting = false;
-          }, 800);
-        }
+        clearInterval(interval);
       }
     };
 
-    const interval = setInterval(type, deleting ? 80 : 130);
+    const interval = setInterval(type, 130);
 
     const blink = setInterval(() => {
-      if (pause) setShowCursor((prev) => !prev);
+      setShowCursor((prev) => !prev);
     }, 500);
 
     return () => {
