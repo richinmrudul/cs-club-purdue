@@ -58,7 +58,7 @@ export default function Home() {
         </h1>
 
         <p className="max-w-2xl text-lg md:text-xl text-gray-200 drop-shadow">
-          Inspiring collaboration, innovation, and growth among Purdue’s Computer Science community.
+          Purdue’s Computer Science Community in Indianapolis.
         </p>
 
         <div className="mt-8 flex flex-col sm:flex-row gap-4">
