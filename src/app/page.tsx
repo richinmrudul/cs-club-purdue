@@ -72,7 +72,7 @@ export default function Home() {
             href="https://cshackindy.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
-            className="border border-white px-6 py-3 rounded-md font-semibold hover:bg-white hover:text-black transition"
+            className="bg-white text-black px-6 py-3 rounded-md font-semibold hover:bg-gray-300 transition"
           >
             Learn More about HackIndy
           </Link>
