@@ -42,9 +42,9 @@ export default function JoinPage() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
-          className="text-gray-300 max-w-2xl mx-auto mt-4"
+          className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mt-4"
         >
-          Be part of Purdue’s computer science community — connect, learn, and
+          Be part of Purdue's computer science community — connect, learn, and
           grow with fellow students passionate about technology.
         </motion.p>
       </div>
