@@ -150,7 +150,7 @@ export default function ExecPage() {
           Meet Our
         </p>
         <h1 className="text-5xl md:text-6xl font-extrabold uppercase">
-          Executive Committee
+          Executive Board
         </h1>
       </div>
 
@@ -334,7 +334,7 @@ export default function ExecPage() {
                 onClick={() => setMenuOpen(false)}
                 className="hover:text-[#CFB991] transition"
               >
-                Executive Committee
+                Executive Board
               </Link>
               <Link
                 href="/join"

@@ -256,7 +256,7 @@ export default function AboutPage() {
                 Events
               </Link>
               <Link href="/exec" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
-                Executive Committee
+                Executive Board
               </Link>
               <Link href="/join" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
                 Join

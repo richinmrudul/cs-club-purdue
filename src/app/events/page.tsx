@@ -380,7 +380,7 @@ export default function EventsPage() {
                 onClick={() => setMenuOpen(false)}
                 className="hover:text-[#CFB991] transition"
               >
-                Executive Committee
+                Executive Board
               </Link>
               <Link
                 href="/join"
