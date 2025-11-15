@@ -9,7 +9,7 @@ export default function JoinPage() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-b from-black via-[#0b0b0b] to-black text-white overflow-hidden">
+    <div className="relative min-h-screen bg-gradient-to-b from-black via-[#0b0b0b] to-black text-white pb-20">
       {/* Animated background glow */}
       <motion.div
         className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(207,185,145,0.08)_0%,transparent_70%)]"

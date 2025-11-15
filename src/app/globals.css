@@ -2,8 +2,8 @@
 
 html, body {
   scroll-behavior: smooth;
-  background-color: #ffffff;
-  color: #000000;
+  background-color: #000000;
+  color: #ffffff;
   font-family: 'Inter', sans-serif;
   min-height: 100%;
 }
