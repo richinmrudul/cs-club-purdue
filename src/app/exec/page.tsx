@@ -115,10 +115,12 @@ const execMembers: ExecMember[] = [
     name: "Aryaman Patel",
     role: "Underclassman Rep",
     img: "/aryaman-headshot.png",
+    pronouns: "He/Him/His",
+    hometown: "Edison, NJ",
     linkedin: "https://www.linkedin.com/in/aryamanp7/",
     email: "pate2794@purdue.edu",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "Hi I'm Aryaman, and I am a freshman majoring in CS. Outside of coding, I like rock climbing both in the climbing gym and outside. I've climbed in Yosemite, The Red in Kentucky, and The Gunks in Upstate New York. Besides that I am also a massive Cavs fan with my favorite player being Donovan Mitchell. If you have any questions or want to chat feel free to reach out!",
   },
 ];
 
