@@ -44,10 +44,11 @@ const execMembers: ExecMember[] = [
     name: "Emily Zheng",
     role: "Treasurer",
     img: "/emily-headshot.png",
+    hometown: "Mountain View, CA",
     linkedin: "https://www.linkedin.com/in/emily-zheng-054890338/",
     email: "zheng849@purdue.edu",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "Hello! My name is Emily Zheng, and I'm a second year Computer Science major in Purdue University. Within Computer Science itself, I've always been interested in graphics and game design— and a way to bring stories to life with interactive elements by using both code and creativity. Outside of classwork and agonizing over code, I usually indulge myself with more creative aspirations— such as drawing, creating flyers for different organizations, gaming, or fooling around with friends.",
   },
   {
     name: "Ruthu Shankar",
