@@ -120,6 +120,9 @@ export default function Home() {
               <Link href="/exec" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
                 Executive Board
               </Link>
+              <Link href="/sponsors" onClick={() => setMenuOpen(false)} className="hover:text-[#CFB991] transition">
+                Sponsors
+              </Link>
               <Link
                 href="https://cshackindy.vercel.app"
                 target="_blank"
