@@ -44,6 +44,7 @@ const execMembers: ExecMember[] = [
     name: "Emily Zheng",
     role: "Treasurer",
     img: "/emily-headshot.png",
+    pronouns: "They/Them/Theirs",
     hometown: "Mountain View, CA",
     linkedin: "https://www.linkedin.com/in/emily-zheng-054890338/",
     email: "zheng849@purdue.edu",
