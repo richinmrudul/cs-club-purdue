@@ -177,35 +177,46 @@ export default function SponsorsPage() {
             viewport={{ once: true }}
             className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 max-w-7xl mx-auto"
           >
-            {sponsors.map((sponsor, i) => (
-              <motion.div
-                key={sponsor.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.05 }}
-                viewport={{ once: true }}
-                whileHover={{
-                  scale: 1.05,
-                  boxShadow: "0 0 15px rgba(207,185,145,0.15)",
-                }}
-                className="bg-white rounded-xl p-6 shadow-md transition-all flex items-center justify-center min-h-[120px]"
-              >
-                {sponsor.logo ? (
-                  <div className="relative w-full h-20">
-                    <Image
-                      src={sponsor.logo}
-                      alt={sponsor.name}
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                ) : (
-                  <h3 className="text-lg font-bold text-gray-800 text-center">
-                    {sponsor.name}
-                  </h3>
-                )}
-              </motion.div>
-            ))}
+            {sponsors.map((sponsor, i) => {
+              const isLastThree = i >= sponsors.length - 3;
+              // Center the last 3 items in a 5-column grid
+              // First item starts at column 2, second at 3, third at 4
+              const positionInLastThree = i - (sponsors.length - 3);
+              const gridColumnStart = isLastThree && sponsors.length % 5 === 3 
+                ? { gridColumnStart: 2 + positionInLastThree } 
+                : {};
+              
+              return (
+                <motion.div
+                  key={sponsor.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.05 }}
+                  viewport={{ once: true }}
+                  whileHover={{
+                    scale: 1.05,
+                    boxShadow: "0 0 15px rgba(207,185,145,0.15)",
+                  }}
+                  className="bg-white rounded-xl p-6 shadow-md transition-all flex items-center justify-center min-h-[120px]"
+                  style={gridColumnStart}
+                >
+                  {sponsor.logo ? (
+                    <div className="relative w-full h-20">
+                      <Image
+                        src={sponsor.logo}
+                        alt={sponsor.name}
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                  ) : (
+                    <h3 className="text-lg font-bold text-gray-800 text-center">
+                      {sponsor.name}
+                    </h3>
+                  )}
+                </motion.div>
+              );
+            })}
           </motion.div>
         )}
       </section>
