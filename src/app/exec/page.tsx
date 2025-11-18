@@ -78,10 +78,12 @@ const execMembers: ExecMember[] = [
     name: "Hana Zoaib",
     role: "Social Media Coordinator",
     img: "/hana-headshot.png",
+    pronouns: "She/Her/Hers",
+    hometown: "Bolton, Massachusetts",
     linkedin: "https://www.linkedin.com/in/hana-zoaib-7233b4345/",
     email: "hzoaib@purdue.edu",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "Hi, my name is Hana and I am one of the social media coordinators for CS Club. I am currently a sophomore studying Data Science. Some of my hobbies include reading, trying out new coffee and food spots, and working out.",
   },
   {
     name: "Oluwatomi Oladunni",
