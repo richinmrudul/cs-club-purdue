@@ -64,6 +64,12 @@ const execMembers: ExecMember[] = [
     name: "Shely Dash",
     role: "Outreach Coordinator",
     img: "/exec-placeholder.jpg",
+    hometown: "Edison, NJ",
+    pronouns: "She/Her/Hers",
+    linkedin: "https://www.linkedin.com/in/shely-dash-bb4b7b320/",
+    email: "dash21@purdue.edu",
+    description:
+    "lorem ipsum",
   },
   {
     name: "Ashwati Palanivel",
