@@ -55,6 +55,8 @@ const execMembers: ExecMember[] = [
     name: "Ruthu Shankar",
     role: "Outreach Coordinator",
     img: "/ruthu-headshot.png",
+    pronouns: "placeholder",
+    hometown: "placeholder",
     linkedin: "https://www.linkedin.com/in/shankarruthu",
     email: "shanka61@purdue.edu",
     description:
