@@ -107,10 +107,12 @@ const execMembers: ExecMember[] = [
     name: "Aditya Raj Pundir",
     role: "Executive Member",
     img: "/aditya-headshot.png",
+    pronouns: "He/Him/His",
+    hometown: "Rawatbhata, Rajasthan, India",
     linkedin: "https://linkedin.com/in/aditya-raj-pundir",
     email: "apundir@purdue.edu",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "Hello! My name is Aditya Raj Pundir, and I'm a freshman majoring in Computer Science at Purdue University. I'm passionate about finding innovative solutions to problems, and love playing the Guitar and Badminton! If you ever wanna play together, don't hesitate to reach out!",
   },
   {
     name: "Aryaman Patel",
