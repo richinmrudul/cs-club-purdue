@@ -99,6 +99,8 @@ const execMembers: ExecMember[] = [
     name: "Oluwatomi Oladunni",
     role: "Social Media Coordinator",
     img: "/oluwatomi-headshot.png",
+    pronouns: "placeholder",
+    hometown: "placeholder",
     linkedin: "https://www.linkedin.com/in/oluwatomi-oladunni-685708214/",
     email: "ooladunn@purdue.edu",
     description:
