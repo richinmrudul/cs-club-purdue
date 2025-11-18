@@ -85,7 +85,7 @@ const execMembers: ExecMember[] = [
     role: "Social Media Coordinator",
     img: "/hana-headshot.png",
     pronouns: "She/Her/Hers",
-    hometown: "Bolton, Massachusetts",
+    hometown: "Bolton, MA",
     linkedin: "https://www.linkedin.com/in/hana-zoaib-7233b4345/",
     email: "hzoaib@purdue.edu",
     description:
