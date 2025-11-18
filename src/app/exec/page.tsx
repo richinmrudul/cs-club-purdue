@@ -143,6 +143,7 @@ export default function ExecPage() {
       "Hana Zoaib",
       "Oluwatomi Oladunni",
       "Ruthu Shankar",
+      "Shely Dash",
       "Aryaman Patel",
       "Emily Zheng",
     ].includes(m.name);
