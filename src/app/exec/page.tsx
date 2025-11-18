@@ -77,6 +77,8 @@ const execMembers: ExecMember[] = [
     name: "Ashwati Palanivel",
     role: "Secretary",
     img: "/ashwati-headshot.png",
+    hometown: "placeholder",
+    pronouns: "placeholder",
     linkedin: "https://www.linkedin.com/in/ashwatipalanivel/",
     email: "palaniv1@purdue.edu",
     description:
