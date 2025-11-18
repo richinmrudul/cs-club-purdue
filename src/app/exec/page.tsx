@@ -27,7 +27,7 @@ const execMembers: ExecMember[] = [
     linkedin: "https://www.linkedin.com/in/omjanamanchi/",
     email: "ojanaman@purdue.edu",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "Hey! I am Om Janamanchi, a sophomore majoring in Computer Science with minors in Mathematics and Finance. I'm interested in quant finance and software engineering. At Purdue, I am Co-President of the Computer Science Club and Director of Industry Relations of Boiler Quant. I love playing chess, swimming, and binging Netflix! Always happy to chat about tech, finance, or anything in between!",
   },
   {
     name: "Abha Gupta",
