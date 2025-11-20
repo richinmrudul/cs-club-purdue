@@ -77,12 +77,12 @@ const execMembers: ExecMember[] = [
     name: "Ashwati Palanivel",
     role: "Secretary",
     img: "/ashwati-headshot.png",
-    hometown: "placeholder",
-    pronouns: "placeholder",
+    hometown: "Dubai, UAE",
+    pronouns: "She/Her/Hers",
     linkedin: "https://www.linkedin.com/in/ashwatipalanivel/",
     email: "palaniv1@purdue.edu",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "I'm Ashwati Palanivel, a freshman studying CS here at Purdue, aspiring to work with AI/ML and bioinformatics in the future. I'm fascinated by how technology can help us understand living systems better, and I love that CS gives me the tools to explore that intersection. Outside of academics, you'll probably find me crocheting or binge watching a new TV show. Always happy to chat about upcoming tech, movies, or share crochet patterns! And looking forward to meeting you all at our upcoming CS club events!",
   },
   {
     name: "Hana Zoaib",
