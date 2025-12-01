@@ -55,12 +55,12 @@ const execMembers: ExecMember[] = [
     name: "Ruthu Shankar",
     role: "Outreach Coordinator",
     img: "/ruthu-headshot.png",
-    pronouns: "placeholder",
-    hometown: "placeholder",
+    pronouns: "She/Her/Hers",
+    hometown: "Tampa, FL",
     linkedin: "https://www.linkedin.com/in/shankarruthu",
     email: "shanka61@purdue.edu",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "Hello! I’m Ruthu Shankar, a sophomore majoring in Computer Science with minors in Math and Management. I serve as President of the Computer Science Women’s Network at Indianapolis and as a College of Science Ambassador. I love traveling, cooking, and trying new things. I’m passionate about building community, expanding my network, and I’m always excited to meet new people and make new friends.",
   },
   {
     name: "Shely Dash",
