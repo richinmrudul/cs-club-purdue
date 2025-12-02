@@ -65,13 +65,13 @@ const execMembers: ExecMember[] = [
   {
     name: "Shely Dash",
     role: "Outreach Coordinator",
-    img: "/exec-placeholder.jpg",
+    img: "/shely-headshot.png",
     hometown: "Edison, NJ",
     pronouns: "She/Her/Hers",
     linkedin: "https://www.linkedin.com/in/shely-dash-bb4b7b320/",
     email: "dash21@purdue.edu",
     description:
-    "lorem ipsum",
+    "I like traveling, trying new foods, and discovering new music. I like being outdoors but i’m even more content with a good nap.",
   },
   {
     name: "Ashwati Palanivel",
