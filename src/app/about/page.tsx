@@ -53,41 +53,21 @@ export default function AboutPage() {
 
       {/* Scrolling Photos */}
       <section className="mt-20 overflow-hidden relative z-10">
-        <div className="space-y-8">
-          {/* Row 1 */}
-          <motion.div
-            className="flex gap-6"
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
-          >
-            {[...images, ...images].map((src, i) => (
-              <motion.div
-                key={`row1-${i}`}
-                whileHover={{ scale: 1.05 }}
-                className="relative w-72 h-48 flex-shrink-0 rounded-2xl overflow-hidden shadow-lg"
-              >
-                <Image src={src} alt="Club Event" fill className="object-cover" />
-              </motion.div>
-            ))}
-          </motion.div>
-
-          {/* Row 2 */}
-          <motion.div
-            className="flex gap-6"
-            animate={{ x: ["-50%", "0%"] }}
-            transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-          >
-            {[...images, ...images].map((src, i) => (
-              <motion.div
-                key={`row2-${i}`}
-                whileHover={{ scale: 1.05 }}
-                className="relative w-72 h-48 flex-shrink-0 rounded-2xl overflow-hidden shadow-lg"
-              >
-                <Image src={src} alt="Club Event" fill className="object-cover" />
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
+        <motion.div
+          className="flex gap-6"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
+        >
+          {[...images, ...images].map((src, i) => (
+            <motion.div
+              key={`photo-${i}`}
+              whileHover={{ scale: 1.05 }}
+              className="relative w-72 h-96 flex-shrink-0 rounded-2xl overflow-hidden shadow-lg"
+            >
+              <Image src={src} alt="Club Event" fill className="object-cover" />
+            </motion.div>
+          ))}
+        </motion.div>
       </section>
 
       {/* Mission Section */}
