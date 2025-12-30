@@ -15,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="text-white overflow-x-hidden" style={{ backgroundColor: '#0a0a0a' }}>
+      <body className="text-white overflow-x-hidden" style={{ backgroundColor: '#0f0f0f' }}>
         <CodeBackground />
         <LoadingBar>{children}</LoadingBar>
       </body>

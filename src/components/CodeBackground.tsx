@@ -74,21 +74,21 @@ export default function CodeBackground() {
     }> = [];
 
     // Initialize particles - more particles for better coverage
-    for (let i = 0; i < 80; i++) {
+    for (let i = 0; i < 50; i++) {
       particles.push({
         text: codeSnippets[Math.floor(Math.random() * codeSnippets.length)],
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        opacity: Math.random() * 0.25 + 0.15, // Increased base opacity
+        opacity: Math.random() * 0.1 + 0.08, // Much more subtle opacity (0.08-0.18)
         speed: Math.random() * 0.5 + 0.2,
-        fontSize: Math.random() * 8 + 10,
+        fontSize: Math.random() * 8 + 10, // Smaller font size
       });
     }
 
     let animationFrame: number;
     const animate = () => {
-      // Use a very dark background instead of pure black
-      ctx.fillStyle = "#0a0a0a";
+      // Use a slightly lighter dark background for better contrast
+      ctx.fillStyle = "#0f0f0f";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       particles.forEach((particle) => {
@@ -98,14 +98,14 @@ export default function CodeBackground() {
           particle.x = Math.random() * canvas.width;
         }
 
-        // More subtle fade effect - code stays visible longer
-        const fadeStart = canvas.height * 0.6;
-        const fadeEnd = canvas.height * 0.95;
+        // Very subtle fade effect - code stays highly visible
+        const fadeStart = canvas.height * 0.75;
+        const fadeEnd = canvas.height * 0.98;
         let opacity = particle.opacity;
         
         if (particle.y > fadeStart) {
           const fadeProgress = (particle.y - fadeStart) / (fadeEnd - fadeStart);
-          opacity = particle.opacity * (1 - Math.min(fadeProgress * 0.7, 0.7)); // Less aggressive fade
+          opacity = particle.opacity * (1 - Math.min(fadeProgress * 0.5, 0.5)); // Minimal fade
         }
 
         ctx.fillStyle = `rgba(207, 185, 145, ${opacity})`;
@@ -128,7 +128,7 @@ export default function CodeBackground() {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 w-full h-full pointer-events-none z-0"
-      style={{ background: "#0a0a0a" }}
+      style={{ background: "#0f0f0f" }}
     />
   );
 }
