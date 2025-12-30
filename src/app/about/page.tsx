@@ -12,7 +12,7 @@ export default function AboutPage() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="relative min-h-screen bg-black text-white overflow-hidden">
+    <div className="relative min-h-screen text-white overflow-hidden">
       {/* Subtle background glow */}
       <motion.div
         className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(207,185,145,0.08)_0%,transparent_70%)]"

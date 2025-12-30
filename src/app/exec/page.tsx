@@ -161,7 +161,7 @@ export default function ExecPage() {
     ].includes(m.name);
 
   return (
-    <div className="relative min-h-screen bg-black text-white">
+    <div className="relative min-h-screen text-white">
       {/* Header */}
       <div className="text-center pt-28 pb-10">
         <p className="text-[#CFB991] uppercase text-sm tracking-widest mb-2">

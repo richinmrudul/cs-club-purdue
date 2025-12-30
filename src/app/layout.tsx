@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import LoadingBar from "@/components/LoadingBar";
+import CodeBackground from "@/components/CodeBackground";
 
 export const metadata: Metadata = {
   title: "Purdue CS Club",
@@ -14,7 +15,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-black text-white overflow-x-hidden">
+      <body className="text-white overflow-x-hidden" style={{ backgroundColor: '#0a0a0a' }}>
+        <CodeBackground />
         <LoadingBar>{children}</LoadingBar>
       </body>
     </html>

@@ -35,7 +35,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-black text-white overflow-hidden">
+    <div className="relative min-h-screen text-white overflow-hidden">
       {/* ─── Background ─── */}
       <div className="absolute inset-0 z-0">
         <Image
