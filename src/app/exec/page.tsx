@@ -99,12 +99,12 @@ const execMembers: ExecMember[] = [
     name: "Oluwatomi Oladunni",
     role: "Social Media Coordinator",
     img: "/oluwatomi-headshot.png",
-    pronouns: "placeholder",
-    hometown: "placeholder",
+    pronouns: "He/Him/His",
+    hometown: "Indianapolis, IN",
     linkedin: "https://www.linkedin.com/in/oluwatomi-oladunni-685708214/",
     email: "ooladunn@purdue.edu",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "I am a Computer Science student at Purdue University Indianapolis with a strong interest in software development, data-driven problem solving, and entrepreneurship. I enjoy applying technical skills to real-world challenges while continuously expanding my knowledge in computer science. I am motivated by collaboration, innovation, and building impactful solutions both inside and outside the classroom.",
   },
   {
     name: "Richin Mrudul",
