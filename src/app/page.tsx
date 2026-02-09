@@ -69,7 +69,7 @@ export default function Home() {
             Join the Club
           </Link>
           <Link
-            href="https://cshackindy.vercel.app"
+            href="https://hackindy.io"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-white text-black px-6 py-3 rounded-md font-semibold hover:bg-gray-300 transition"
@@ -124,7 +124,7 @@ export default function Home() {
                 Sponsors
               </Link>
               <Link
-                href="https://cshackindy.vercel.app"
+                href="https://hackindy.io"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMenuOpen(false)}

@@ -375,7 +375,7 @@ export default function SponsorsPage() {
                 Sponsors
               </Link>
               <Link
-                href="https://cshackindy.vercel.app"
+                href="https://hackindy.io"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMenuOpen(false)}
