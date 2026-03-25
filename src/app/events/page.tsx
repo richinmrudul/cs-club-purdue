@@ -159,7 +159,7 @@ export default function EventsPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [tagFilter, setTagFilter] = useState<"All" | Tag>("All");
 
-  const today = new Date("2025-11-02");
+  const today = new Date("2026-02-14");
 
   const { past, upcoming } = useMemo(() => {
     const past: EventItem[] = [];
